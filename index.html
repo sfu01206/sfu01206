@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <title>Global Pioneer Consulting｜领锋国际咨询</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="独立的身份、移民与重大决策判断咨询机构，为不可逆选择提供专业判断。">
 
 <style>
 :root{
-  --dark:#0f172a;
+  --dark:#0b1220;
   --gray:#475569;
-  --light:#f8fafc;
+  --light:#f4f6f8;
+  --accent:#1e293b;
 }
 
 *{box-sizing:border-box}
@@ -21,10 +21,7 @@ body{
   "PingFang SC","Helvetica Neue",Arial,sans-serif;
   color:var(--dark);
   line-height:1.75;
-  background:#fff;
 }
-
-a{text-decoration:none;color:inherit}
 
 .container{
   max-width:1120px;
@@ -51,14 +48,14 @@ nav .inner{
 .brand{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:12px;
   font-weight:600;
-  letter-spacing:.2px;
 }
 .menu a{
   margin-left:28px;
   font-size:15px;
   color:#334155;
+  text-decoration:none;
 }
 
 /* HERO */
@@ -69,31 +66,33 @@ nav .inner{
   align-items:center;
   color:#fff;
   background:
-    linear-gradient(to bottom,rgba(15,23,42,.55),rgba(15,23,42,.9)),
-    url("hero.jpg") center top / cover no-repeat;
+    linear-gradient(to bottom,rgba(11,18,32,.55),rgba(11,18,32,.9)),
+    url("hero.jpg") center / cover no-repeat;
 }
 .hero h1{
   font-size:44px;
-  max-width:860px;
   line-height:1.35;
+  max-width:900px;
 }
 .hero p{
   margin-top:28px;
   font-size:18px;
   color:#e5e7eb;
-  max-width:700px;
+  max-width:720px;
 }
 .cta{
   display:inline-block;
   margin-top:42px;
-  padding:14px 38px;
-  border:1px solid rgba(255,255,255,.85);
+  padding:14px 40px;
+  border:1px solid rgba(255,255,255,.9);
   font-size:15px;
+  text-decoration:none;
+  color:#fff;
 }
 
 /* SECTIONS */
 section{padding:120px 0}
-section.alt{background:var(--light)}
+.alt{background:var(--light)}
 
 h2{
   font-size:32px;
@@ -130,32 +129,33 @@ footer{
 <nav>
   <div class="container inner">
     <div class="brand">
-      <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
-        <path d="M20 70 L50 20 L80 70" stroke="#0f172a" stroke-width="10"/>
+      <!-- LOGO -->
+      <svg width="34" height="34" viewBox="0 0 100 100" fill="none">
+        <path d="M20 70 L50 20 L80 70" stroke="#0b1220" stroke-width="10"/>
         <path d="M35 70 L50 40 L65 70" stroke="#94a3b8" stroke-width="8"/>
       </svg>
       Global Pioneer Consulting
     </div>
     <div class="menu">
-      <a href="#home">首页</a>
       <a href="#method">判断方法</a>
+      <a href="#scope">业务范围</a>
       <a href="#model">合作方式</a>
       <a href="#contact">联系</a>
     </div>
   </div>
 </nav>
 
-<div id="home" class="hero">
+<div class="hero">
   <div class="container">
     <h1>
       在你为身份、移民或资产路径<br>
       做出不可逆决定之前，<br>
-      我们只负责一件事：<br>
-      帮你判断，这条路值不值得走。
+      我们帮你把事情想清楚。
     </h1>
     <p>
-      领锋国际咨询是一家独立的决策咨询机构。<br>
-      不销售项目，不参与佣金，不代表任何一方利益。
+      领锋国际咨询是一家独立的决策咨询机构。  
+      我们唯一代表的是客户的长期利益，  
+      不绑定任何项目、不参与任何佣金。
     </p>
     <a class="cta" href="#method">了解我们的判断方法</a>
   </div>
@@ -163,15 +163,15 @@ footer{
 
 <section>
   <div class="container">
-    <h2>我们解决的不是“方案选择”，而是“判断缺位”</h2>
+    <h2>我们解决的，是“判断缺位”</h2>
     <div class="grid">
       <div class="card">
         <h3>信息高度不对称</h3>
-        <p>大多数移民与身份决策，由销售驱动，而非判断驱动。</p>
+        <p>移民与身份决策往往由销售驱动，而非判断驱动。</p>
       </div>
       <div class="card">
         <h3>决策不可逆</h3>
-        <p>身份、路径与资产安排，一旦选择，往往无法回撤。</p>
+        <p>一旦选择错误，时间、身份与资金都无法回撤。</p>
       </div>
       <div class="card">
         <h3>责任被模糊</h3>
@@ -181,33 +181,13 @@ footer{
   </div>
 </section>
 
-<section class="alt">
+<section id="method" class="alt">
   <div class="container">
-    <h2>为什么判断必须独立</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>判断一旦绑定交易，就不再可信</h3>
-        <p>当收入来源取决于成交结果，判断天然会被扭曲。</p>
-      </div>
-      <div class="card">
-        <h3>多数风险在成交前被刻意忽略</h3>
-        <p>真正重要的风险，往往不在合同里，而在执行中。</p>
-      </div>
-      <div class="card">
-        <h3>客户需要的是判断，而不是推荐</h3>
-        <p>推荐项目的人很多，承担判断责任的人极少。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="method">
-  <div class="container">
-    <h2>我们的判断方法论</h2>
+    <h2>我们的判断方法</h2>
     <div class="grid">
       <div class="card">
         <h3>路径是否真实可执行</h3>
-        <p>区分政策文本、律师意见与现实执行之间的差距。</p>
+        <p>区分政策文本、律师意见与真实执行之间的差距。</p>
       </div>
       <div class="card">
         <h3>成本是否完整透明</h3>
@@ -215,12 +195,24 @@ footer{
       </div>
       <div class="card">
         <h3>时间是否可预期</h3>
-        <p>判断时间表稳定性以及失败时的真实代价。</p>
+        <p>判断时间表稳定性，以及失败时的真实代价。</p>
       </div>
       <div class="card">
-        <h3>哪些节点不可逆</h3>
-        <p>标记一旦发生便无法回撤的关键决策点。</p>
+        <h3>关键节点是否不可逆</h3>
+        <p>标记一旦发生便无法回撤的决策节点。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="scope">
+  <div class="container">
+    <h2>当前判断覆盖范围</h2>
+    <div class="grid">
+      <div class="card"><h3>🇺🇸 美国 EB-5 / EB-1A</h3></div>
+      <div class="card"><h3>🇹🇷 土耳其购房 / 基金入籍</h3></div>
+      <div class="card"><h3>🇬🇷 希腊购房移民</h3></div>
+      <div class="card"><h3>🇵🇹 葡萄牙基金移民</h3></div>
     </div>
   </div>
 </section>
@@ -231,11 +223,11 @@ footer{
     <div class="grid">
       <div class="card">
         <h3>我们收费什么</h3>
-        <p>为复杂、不透明、高风险决策提供独立判断与结构分析。</p>
+        <p>为复杂、高风险、不可逆决策提供独立判断。</p>
       </div>
       <div class="card">
         <h3>我们不做什么</h3>
-        <p>不销售项目，不收取佣金，不承诺结果。</p>
+        <p>不销售项目，不承诺结果，不替代律师或中介。</p>
       </div>
       <div class="card">
         <h3>为什么这样更安全</h3>
@@ -247,8 +239,8 @@ footer{
 
 <section id="contact">
   <div class="container">
-    <h2>谁适合找我们</h2>
-    <p>如果你正在面对一次高成本、不可逆、信息不透明的重大选择，欢迎申请一次初始判断沟通。</p>
+    <h2>下一步</h2>
+    <p>如果你正在面对一次高成本、不可逆的重大选择，欢迎申请一次初始判断沟通。</p>
     <p>📧 contact@globalpioneerconsulting.com</p>
   </div>
 </section>
