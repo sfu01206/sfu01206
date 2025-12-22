@@ -4,235 +4,111 @@
 <meta charset="UTF-8">
 <title>Global Pioneer Consulting｜领锋国际咨询</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="独立的身份与重大决策咨询机构，为不可逆选择提供判断支持。">
+<meta name="description" content="独立的身份、移民与重大决策判断咨询机构">
 
 <style>
-:root {
-  --dark: #0f172a;
-  --gray: #475569;
-  --accent: #ffffff; /* 用于高亮文本或边框 */
+:root{
+  --dark:#0f172a;
+  --gray:#475569;
+  --light:#f8fafc;
 }
 
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: #111;
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased; /* 抗锯齿，使字体更平滑 */
-  background-color: #000; /* 防止背景图加载前出现白屏 */
-  overflow-x: hidden; /* 防止出现水平滚动条 */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,
+  "PingFang SC","Helvetica Neue",Arial,sans-serif;
+  color:#0f172a;
+  line-height:1.75;
 }
+a{text-decoration:none;color:inherit}
 
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
+.container{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 32px;
 }
 
-/* NAV - 磨砂玻璃导航栏 */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.08); /* 略透明背景 */
-  backdrop-filter: blur(12px); /* 磨砂玻璃效果 */
-  -webkit-backdrop-filter: blur(12px); /* Safari兼容性 */
-  border-bottom: 1px solid rgba(255,255,255,0.1); /* 底部细边框 */
-  z-index: 100;
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:72px;
+  background:rgba(255,255,255,.95);
+  border-bottom:1px solid #e5e7eb;
+  z-index:100;
 }
-nav .inner {
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+nav .inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:72px;
 }
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  color: #fff; /* 导航文字改为白色，与背景搭配 */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-weight:600;
 }
-.menu a {
-  margin-left: 32px;
-  font-size: 14px;
-  color: rgba(255,255,255,0.7); /* 菜单文字略透明 */
-  font-weight: 500;
-}
-.menu a:hover { color: #fff; } /* 悬停时白色 */
-
-/* HERO - 全屏背景图与内容 */
-.hero {
-  height: 100vh; /* 占满整个视口高度 */
-  padding-top: 80px; /* 避开导航栏 */
-  color: #fff;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden; /* 防止背景动画溢出 */
+.menu a{
+  margin-left:28px;
+  font-size:15px;
+  color:#334155;
 }
 
-/* 背景图容器 */
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('background.jpg'); /* **关键：引用你上传的图片** */
-    background-size: cover;
-    background-position: center;
-    animation: zoomEffect 20s infinite alternate; /* 缓慢的放大缩小动画 */
-    z-index: -1; /* 确保在内容之下 */
+/* HERO */
+.hero{
+  padding-top:72px;
+  min-height:80vh;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  background:
+    linear-gradient(to bottom,rgba(15,23,42,.55),rgba(15,23,42,.9)),
+    url("data:image/jpeg;base64,{{我已生成的完整Base64图片}}")
+    center top / cover no-repeat;
+}
+.hero h1{
+  font-size:44px;
+  max-width:820px;
+}
+.hero p{
+  margin-top:28px;
+  font-size:18px;
+  color:#e5e7eb;
+  max-width:680px;
+}
+.cta{
+  display:inline-block;
+  margin-top:40px;
+  padding:14px 36px;
+  border:1px solid rgba(255,255,255,.8);
+  font-size:15px;
 }
 
-@keyframes zoomEffect {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
+/* SECTIONS */
+section{padding:120px 0}
+h2{
+  font-size:32px;
+  margin-bottom:48px;
 }
-
-
-/* 渐变叠加层，提升文字可读性和设计感 */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(15,23,42,0.6) 0%, /* 顶部较亮 */
-    rgba(15,23,42,0.85) 60%, /* 中部深色 */
-    rgba(15,23,42,0.95) 100% /* 底部最深，确保CTA可读 */
-  );
-  z-index: 1;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:56px;
 }
-
-.hero .container {
-  position: relative;
-  z-index: 2; /* 确保内容在叠加层之上 */
-}
-
-.hero h1 {
-  font-size: clamp(32px, 5vw, 48px); /* 响应式字体大小 */
-  line-height: 1.4;
-  max-width: 900px;
-  font-weight: 600;
-  letter-spacing: 1px; /* 增加字间距，更显专业 */
-  margin: 0;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* 文字阴影，增加立体感 */
-}
-
-.hero h1 .highlight {
-  color: var(--accent); /* 高亮颜色，保持白色 */
-  border-bottom: 2px solid var(--accent); /* 下划线强调 */
-  padding-bottom: 2px; /* 下划线与文字的距离 */
-}
-
-.hero p {
-  margin-top: 32px;
-  font-size: clamp(16px, 2.5vw, 20px);
-  color: rgba(255,255,255,0.85);
-  max-width: 700px;
-  font-weight: 300;
-  line-height: 1.7;
-}
-
-.cta {
-  display: inline-block;
-  margin-top: 48px;
-  padding: 16px 42px;
-  border: 1px solid rgba(255,255,255,0.6);
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  transition: all 0.4s;
-  color: #fff;
-  background-color: transparent;
-  text-transform: uppercase;
-}
-.cta:hover {
-  background: #fff;
-  color: var(--dark);
-  border-color: #fff;
-  box-shadow: 0 0 20px rgba(255,255,255,0.2); /* 悬停阴影效果 */
-}
-
-/* SECTIONS - 保持原风格 */
-section { padding: 140px 0; background: #fff; }
-section h2 {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 64px;
-  letter-spacing: -0.5px;
-  text-align: center;
-  color: var(--dark);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 60px;
-}
-
-.card {
-  padding: 40px;
-  border-radius: 4px;
-  background: #f8fafc;
-  transition: 0.3s;
-  border: 1px solid rgba(0,0,0,0.05); /* 轻微边框 */
-}
-.card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-
-.card h3 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  color: var(--dark);
-}
-.card p { color: var(--gray); font-size: 16px; margin: 0; line-height: 1.7; }
+.card h3{font-size:20px;margin-bottom:14px}
+.card p{color:var(--gray)}
 
 /* FOOTER */
-footer {
-  background: #f1f5f9;
-  padding: 60px 0;
-  text-align: center;
-  font-size: 14px;
-  color: #94a3b8;
+footer{
+  padding:48px 0;
+  border-top:1px solid #e5e7eb;
+  text-align:center;
+  font-size:14px;
+  color:#64748b;
 }
-
-/* LOGO SVG样式优化 */
-.logo-mark { width: 32px; height: 32px; }
-.logo-mark path {
-    stroke-width: 6; /* 稍微细一点的线条 */
-}
-.logo-mark path:nth-child(1) { stroke: #fff; } /* LOGO改为白色，与导航栏背景协调 */
-.logo-mark path:nth-child(2) { stroke: rgba(255,255,255,0.7); } /* 第二部分略透明 */
-
-/* 移动端优化 */
-@media (max-width: 768px) {
-    .container { padding: 0 20px; }
-    nav .inner { height: 70px; }
-    .brand { font-size: 16px; gap: 8px; }
-    .logo-mark { width: 28px; height: 28px; }
-    .menu { display: none; /* 在移动端隐藏菜单，通常用汉堡包菜单替代 */ }
-    .hero { height: 80vh; min-height: 500px; padding-top: 70px; }
-    .hero h1 { letter-spacing: 0.5px; }
-    .hero p { margin-top: 24px; }
-    .cta { margin-top: 36px; padding: 14px 30px; }
-    section { padding: 80px 0; }
-    section h2 { font-size: 28px; margin-bottom: 48px; }
-    .grid { gap: 40px; }
-    .card { padding: 30px; }
-}
-
 </style>
 </head>
 
@@ -241,54 +117,85 @@ footer {
 <nav>
   <div class="container inner">
     <div class="brand">
-      <svg class="logo-mark" viewBox="0 0 100 100" fill="none">
-        <path d="M20 70 L50 20 L80 70" stroke="#fff" stroke-width="6"/> 
-        <path d="M35 70 L50 40 L65 70" stroke="rgba(255,255,255,0.7)" stroke-width="4"/>
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+        <path d="M20 70 L50 20 L80 70" stroke="#0f172a" stroke-width="10"/>
+        <path d="M35 70 L50 40 L65 70" stroke="#94a3b8" stroke-width="8"/>
       </svg>
       Global Pioneer Consulting
     </div>
     <div class="menu">
-      <a href="#">首页</a>
-      <a href="#">判断方法</a>
-      <a href="#">关于我们</a>
-      <a href="#">联系</a>
+      <a href="#home">首页</a>
+      <a href="#method">判断方法</a>
+      <a href="#model">合作方式</a>
+      <a href="#contact">联系</a>
     </div>
   </div>
 </nav>
 
-<div class="hero">
-    <div class="hero-bg"></div> <div class="container">
-        <h1>
-            在你为身份、移民或资产路径<br>
-            做出不可逆决定之前，<br>
-            我们只负责一件事：<br>
-            <span class="highlight">判断这件事，值不值得继续。</span>
-        </h1>
-        <p>
-            领锋国际咨询是一家独立的决策咨询机构。<br>
-            不销售项目，不参与佣金，只对判断负责。
-        </p>
-        <a class="cta" href="#">申请初始判断</a>
-    </div>
+<div id="home" class="hero">
+  <div class="container">
+    <h1>
+      在你为身份、移民或资产路径<br>
+      做出不可逆决定之前，<br>
+      我们只负责一件事：判断。
+    </h1>
+    <p>
+      领锋国际咨询是一家独立的决策判断机构。<br>
+      不销售项目，不参与佣金，只对判断负责。
+    </p>
+    <a class="cta" href="#method">了解我们的判断方法</a>
+  </div>
 </div>
 
-<section>
+<section id="method">
   <div class="container">
-    <h2>我们解决的不是方案，而是判断缺位</h2>
+    <h2>我们的判断方法</h2>
     <div class="grid">
       <div class="card">
-        <h3>信息不对称</h3>
-        <p>深入底层逻辑，识别真实成本与结构性溢价，打破中介层的信息垄断。</p>
+        <h3>路径是否真实可执行</h3>
+        <p>区分政策文本与真实执行之间的差距。</p>
       </div>
       <div class="card">
-        <h3>不可逆决策</h3>
-        <p>身份与路径选择往往伴随高昂的时间代价，一旦开启便无法无损回撤。</p>
+        <h3>成本是否完整透明</h3>
+        <p>识别显性成本、隐性成本与结构性溢价。</p>
       </div>
       <div class="card">
-        <h3>独立判断</h3>
-        <p>坚持“裁判与教练分离”，判断必须独立产生于任何利益交易之外。</p>
+        <h3>时间是否可预期</h3>
+        <p>判断时间表稳定性与失败的代价。</p>
+      </div>
+      <div class="card">
+        <h3>哪些决策不可逆</h3>
+        <p>标记一旦发生便无法回撤的关键节点。</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="model" style="background:#f8fafc">
+  <div class="container">
+    <h2>合作与收费逻辑</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>我们收费什么</h3>
+        <p>判断本身。为复杂、不透明、高风险决策提供独立分析。</p>
+      </div>
+      <div class="card">
+        <h3>我们不做什么</h3>
+        <p>不销售项目、不收佣金、不绑定结果。</p>
+      </div>
+      <div class="card">
+        <h3>为什么必须独立</h3>
+        <p>判断一旦与交易绑定，就不再可信。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>联系与初始判断</h2>
+    <p>如果你正在面对一次不可逆选择，可以申请一次初始判断沟通。</p>
+    <p>📧 contact@globalpioneerconsulting.com</p>
   </div>
 </section>
 
