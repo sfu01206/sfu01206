@@ -1,282 +1,75 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <title>领锋国际咨询 | Global Pioneer Consulting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bcg-navy: #00233D; /* 真正的 BCG 经典海军蓝 */
-            --bcg-teal: #00918E; /* BCG 标志性的青蓝色作为点缀 */
-            --text-white: #FFFFFF;
-            --text-gray: #A0AEC0;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        /* 保持原网页的简洁风格，仅优化背景展示 */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden; /* 防止出现滚动条 */
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bcg-navy);
-            color: var(--text-white);
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            line-height: 1.6;
-        }
-
-        /* 背景纹理：模拟顶级办公空间的质感 */
-        .bg-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 80% 20%, rgba(0, 145, 142, 0.05) 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        /* 导航栏：极简浮动 */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 6%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(0, 35, 61, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* --- 重新设计的高级 Logo: The Dimension Prism --- */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 45px;
-            height: 45px;
+        .bg-image {
+            /* 嵌入你选中的选项1图片 */
+            background-image: url('http://googleusercontent.com/image_generation_content/0.png');
+            
+            /* 确保图片高清且全屏覆盖 */
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             position: relative;
         }
 
-        /* 这是一个由两个偏转的矩形组成的抽象 GP，代表透视和维度 */
-        .logo-shape-1 {
+        /* 黑色半透明遮罩层，确保白色文字在复杂背景下依然清晰 */
+        .overlay {
             position: absolute;
-            width: 25px; height: 35px;
-            border: 2px solid var(--bcg-teal);
-            transform: skewY(-10deg);
-            z-index: 2;
-        }
-        .logo-shape-2 {
-            position: absolute;
-            width: 25px; height: 35px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            left: 12px; top: 5px;
-            transform: skewY(-10deg);
-            z-index: 1;
-        }
-
-        .logo-text {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
             display: flex;
             flex-direction: column;
-        }
-
-        .logo-title {
-            color: #FFF;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.4rem;
-            letter-spacing: 1px;
-            line-height: 1;
-        }
-
-        .logo-desc {
-            color: var(--bcg-teal);
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-
-        /* Hero Section: BCG 标志性的非对称设计 */
-        .hero {
-            height: 100vh;
-            display: flex;
+            justify-content: center;
             align-items: center;
-            padding: 0 10%;
-            background: linear-gradient(90deg, var(--bcg-navy) 40%, rgba(0,0,0,0) 100%),
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070') center/cover;
+            text-align: center;
+            padding: 20px;
         }
 
-        .hero-inner {
-            max-width: 800px;
-            z-index: 10;
-        }
-
-        .tagline {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--bcg-teal);
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-
-        .tagline::before {
-            content: "";
-            width: 40px;
-            height: 1px;
-            background: var(--bcg-teal);
-        }
-
+        /* 严格遵循原网页的文字层级 */
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4.2rem);
-            line-height: 1.1;
-            margin-bottom: 40px;
-            font-weight: 400;
+            font-size: 3rem;
+            margin: 0;
+            padding-bottom: 10px;
         }
 
-        h1 em {
-            font-style: italic;
-            color: var(--bcg-teal);
+        p {
+            font-size: 1.5rem;
+            margin: 0;
         }
 
-        .description {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin-bottom: 50px;
-            font-weight: 300;
-        }
-
-        /* 纯净的 BCG 风格 CTA */
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            background: var(--bcg-teal);
-            color: #FFF;
-            padding: 22px 45px;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-
-        .cta-btn:hover {
-            background: #FFF;
-            color: var(--bcg-navy);
-            transform: translateX(10px);
-        }
-
-        /* 内容板块：White Background */
-        .capability-section {
-            background: #F4F7F9;
-            color: var(--bcg-navy);
-            padding: 120px 10%;
-        }
-
-        .section-header {
-            margin-bottom: 80px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .section-header h2::after {
-            content: "";
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 80px; height: 3px;
-            background: var(--bcg-teal);
-        }
-
-        .cap-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-        }
-
-        .cap-item h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-        }
-
-        .cap-item p {
-            color: #4A5568;
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        @media (max-width: 1024px) {
-            .cap-grid { grid-template-columns: 1fr; }
-            .hero { padding: 0 5%; }
+        /* 移动端自适应 */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-overlay"></div>
-
-    <nav>
-        <a href="#" class="logo-container">
-            <div class="logo-icon">
-                <div class="logo-shape-1"></div>
-                <div class="logo-shape-2"></div>
-            </div>
-            <div class="logo-text">
-                <span class="logo-title">领锋国际</span>
-                <span class="logo-desc">Global Pioneer Consulting</span>
-            </div>
-        </a>
-        <div style="display: flex; gap: 30px;">
-            <a href="#" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">CAPABILITIES</a>
-            <a href="#" style="color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 1px;">INSIGHTS</a>
+    <div class="bg-image">
+        <div class="overlay">
+            <h1>领锋国际咨询 | Global Pioneer Consulting</h1>
+            <p>求职咨询、职业规划、背景提升、实习内推、留学申请</p>
         </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-inner">
-            <span class="tagline">Independent Advisory</span>
-            <h1>在复杂的地缘博弈中<br>辨别<em>确定性路径</em></h1>
-            <p class="description">
-                领锋国际（GPC）是一家受麦肯锡思维启发、纯粹独立的决策咨询机构。我们不对任何项目负责，我们只为您做出正确决定的逻辑负责。
-            </p>
-            <a href="#" class="cta-btn">与资深顾问对话 →</a>
-        </div>
-    </section>
-
-    <section class="capability-section">
-        <div class="section-header">
-            <h2>我们的专业领域</h2>
-        </div>
-        <div class="cap-grid">
-            <div class="cap-item">
-                <h3>独立研判立场</h3>
-                <p>100% 拒绝项目佣金。这种彻底的利益脱钩，是我们能够为您提供“穿透表象、直抵真相”的底层风控报告的基础。</p>
-            </div>
-            <div class="cap-item">
-                <h3>全球资产风控</h3>
-                <p>从司法管辖区的法律冲突到资产退出机制的流动性压力，我们为您扫描全球资产配置中所有隐形的“不可逆”风险。</p>
-            </div>
-            <div class="cap-item">
-                <h3>身份战略重构</h3>
-                <p>身份不应是商品，而是资产的屏障。我们采用麦肯锡式的 MECE 原则，为您逆向拆解并重组全球身份矩阵。</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
 </body>
 </html>
