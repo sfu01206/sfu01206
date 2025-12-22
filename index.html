@@ -7,9 +7,9 @@
 
 <style>
 :root{
-  --dark:#0b1220;
+  --dark:#0f172a;
   --gray:#475569;
-  --light:#f4f6f8;
+  --light:#f5f7fa;
   --accent:#1e293b;
 }
 
@@ -20,14 +20,22 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,
   "PingFang SC","Helvetica Neue",Arial,sans-serif;
   color:var(--dark);
-  line-height:1.75;
+  line-height:1.8;
 }
 
 .container{
-  max-width:1120px;
+  max-width:1080px;
   margin:0 auto;
-  padding:0 32px;
+  padding:0 28px;
 }
+
+section{padding:110px 0}
+.alt{background:var(--light)}
+
+h1{font-size:44px;line-height:1.4}
+h2{font-size:32px;margin-bottom:36px}
+h3{font-size:20px;margin-bottom:12px}
+p{color:var(--gray);font-size:16px}
 
 /* NAV */
 nav{
@@ -35,7 +43,7 @@ nav{
   top:0;
   width:100%;
   height:72px;
-  background:rgba(255,255,255,.96);
+  background:#fff;
   border-bottom:1px solid #e5e7eb;
   z-index:100;
 }
@@ -52,65 +60,30 @@ nav .inner{
   font-weight:600;
 }
 .menu a{
-  margin-left:28px;
-  font-size:15px;
+  margin-left:26px;
+  font-size:14px;
   color:#334155;
   text-decoration:none;
 }
 
 /* HERO */
 .hero{
-  min-height:90vh;
+  min-height:95vh;
   padding-top:72px;
   display:flex;
   align-items:center;
-  color:#fff;
   background:
-    linear-gradient(to bottom,rgba(11,18,32,.55),rgba(11,18,32,.9)),
+    linear-gradient(to bottom,rgba(15,23,42,.6),rgba(15,23,42,.9)),
     url("hero.jpg") center / cover no-repeat;
-}
-.hero h1{
-  font-size:44px;
-  line-height:1.35;
-  max-width:900px;
-}
-.hero p{
-  margin-top:28px;
-  font-size:18px;
-  color:#e5e7eb;
-  max-width:720px;
-}
-.cta{
-  display:inline-block;
-  margin-top:42px;
-  padding:14px 40px;
-  border:1px solid rgba(255,255,255,.9);
-  font-size:15px;
-  text-decoration:none;
   color:#fff;
 }
+.hero p{color:#e5e7eb;font-size:18px}
 
-/* SECTIONS */
-section{padding:120px 0}
-.alt{background:var(--light)}
-
-h2{
-  font-size:32px;
-  margin-bottom:48px;
-}
-
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:56px;
-}
-
-.card h3{
-  font-size:20px;
-  margin-bottom:14px;
-}
-.card p{
-  color:var(--gray);
+  gap:48px;
 }
 
 /* FOOTER */
@@ -129,17 +102,17 @@ footer{
 <nav>
   <div class="container inner">
     <div class="brand">
-      <!-- LOGO -->
-      <svg width="34" height="34" viewBox="0 0 100 100" fill="none">
-        <path d="M20 70 L50 20 L80 70" stroke="#0b1220" stroke-width="10"/>
-        <path d="M35 70 L50 40 L65 70" stroke="#94a3b8" stroke-width="8"/>
+      <!-- GP LOGO -->
+      <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+        <path d="M20 70 L50 20 L80 70" stroke="#0f172a" stroke-width="9"/>
+        <path d="M50 20 L50 80" stroke="#94a3b8" stroke-width="6"/>
       </svg>
       Global Pioneer Consulting
     </div>
     <div class="menu">
-      <a href="#method">判断方法</a>
-      <a href="#scope">业务范围</a>
-      <a href="#model">合作方式</a>
+      <a href="#thinking">思考路径</a>
+      <a href="#scope">判断范围</a>
+      <a href="#work">如何合作</a>
       <a href="#contact">联系</a>
     </div>
   </div>
@@ -148,90 +121,80 @@ footer{
 <div class="hero">
   <div class="container">
     <h1>
-      在你为身份、移民或资产路径<br>
-      做出不可逆决定之前，<br>
-      我们帮你把事情想清楚。
+      我不是想再做一家移民公司。<br>
+      我只是发现，几乎没有人<br>
+      真正帮客户把移民这件事想清楚。
     </h1>
-    <p>
-      领锋国际咨询是一家独立的决策咨询机构。  
-      我们唯一代表的是客户的长期利益，  
-      不绑定任何项目、不参与任何佣金。
+    <p style="max-width:720px;margin-top:32px;">
+      领锋国际咨询，源于我在移民行业多年后产生的一个强烈困惑：  
+      为什么如此重大、不可逆的决定，  
+      却总是在信息不完整、利益绑定的情况下被推动完成？
     </p>
-    <a class="cta" href="#method">了解我们的判断方法</a>
   </div>
 </div>
 
-<section>
+<section id="thinking">
   <div class="container">
-    <h2>我们解决的，是“判断缺位”</h2>
+    <h2>我是如何一步步走到这里的</h2>
     <div class="grid">
-      <div class="card">
-        <h3>信息高度不对称</h3>
-        <p>移民与身份决策往往由销售驱动，而非判断驱动。</p>
+      <div>
+        <h3>第一阶段：参与其中</h3>
+        <p>我曾长期作为项目方、供应方，与移民公司深度合作，理解每一个流程如何被包装、销售与推动。</p>
       </div>
-      <div class="card">
-        <h3>决策不可逆</h3>
-        <p>一旦选择错误，时间、身份与资金都无法回撤。</p>
+      <div>
+        <h3>第二阶段：开始怀疑</h3>
+        <p>我越来越清楚地看到：客户支付的，往往不仅是费用，还有被隐瞒的风险与不可逆的后果。</p>
       </div>
-      <div class="card">
-        <h3>责任被模糊</h3>
-        <p>项目失败的后果，最终通常由客户独自承担。</p>
+      <div>
+        <h3>第三阶段：重新定位</h3>
+        <p>我意识到，真正稀缺的不是项目，而是独立判断；不是方案，而是清晰的决策结构。</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="method" class="alt">
+<section class="alt">
   <div class="container">
-    <h2>我们的判断方法</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>路径是否真实可执行</h3>
-        <p>区分政策文本、律师意见与真实执行之间的差距。</p>
-      </div>
-      <div class="card">
-        <h3>成本是否完整透明</h3>
-        <p>识别显性费用、隐性成本与结构性溢价。</p>
-      </div>
-      <div class="card">
-        <h3>时间是否可预期</h3>
-        <p>判断时间表稳定性，以及失败时的真实代价。</p>
-      </div>
-      <div class="card">
-        <h3>关键节点是否不可逆</h3>
-        <p>标记一旦发生便无法回撤的决策节点。</p>
-      </div>
-    </div>
+    <h2>所以，我最终选择了这个角色</h2>
+    <p style="max-width:760px;">
+      领锋国际咨询不是移民中介，也不替代律师。  
+      我们唯一代表的是客户的长期利益，  
+      并且刻意与任何具体项目、佣金、成交结果保持距离。
+    </p>
   </div>
 </section>
 
 <section id="scope">
   <div class="container">
-    <h2>当前判断覆盖范围</h2>
+    <h2>目前覆盖的判断范围</h2>
     <div class="grid">
-      <div class="card"><h3>🇺🇸 美国 EB-5 / EB-1A</h3></div>
-      <div class="card"><h3>🇹🇷 土耳其购房 / 基金入籍</h3></div>
-      <div class="card"><h3>🇬🇷 希腊购房移民</h3></div>
-      <div class="card"><h3>🇵🇹 葡萄牙基金移民</h3></div>
+      <div><h3>🇺🇸 美国 EB-5 / EB-1A</h3></div>
+      <div><h3>🇹🇷 土耳其购房 / 基金入籍</h3></div>
+      <div><h3>🇬🇷 希腊购房移民</h3></div>
+      <div><h3>🇵🇹 葡萄牙基金移民</h3></div>
     </div>
+    <p style="margin-top:32px;max-width:760px;">
+      覆盖并不意味着推荐。  
+      每一个路径，都需要结合你的目标、时间、风险承受能力重新判断。
+    </p>
   </div>
 </section>
 
-<section id="model" class="alt">
+<section id="work" class="alt">
   <div class="container">
-    <h2>合作与收费逻辑</h2>
+    <h2>如果你选择和我合作，实际会发生什么</h2>
     <div class="grid">
-      <div class="card">
-        <h3>我们收费什么</h3>
-        <p>为复杂、高风险、不可逆决策提供独立判断。</p>
+      <div>
+        <h3>你会得到什么</h3>
+        <p>一份站在你这一侧、拆解所有关键风险与假设的判断意见。</p>
       </div>
-      <div class="card">
-        <h3>我们不做什么</h3>
-        <p>不销售项目，不承诺结果，不替代律师或中介。</p>
+      <div>
+        <h3>你不会被推什么</h3>
+        <p>不会被引导成交，不会被制造紧迫感，不会被“今天不签就没了”。</p>
       </div>
-      <div class="card">
-        <h3>为什么这样更安全</h3>
-        <p>判断独立于交易，是保护客户的唯一方式。</p>
+      <div>
+        <h3>你需要自己做什么</h3>
+        <p>最终决策仍然在你手里，但你会清楚自己为什么这么选。</p>
       </div>
     </div>
   </div>
@@ -239,9 +202,13 @@ footer{
 
 <section id="contact">
   <div class="container">
-    <h2>下一步</h2>
-    <p>如果你正在面对一次高成本、不可逆的重大选择，欢迎申请一次初始判断沟通。</p>
-    <p>📧 contact@globalpioneerconsulting.com</p>
+    <h2>写在最后</h2>
+    <p style="max-width:760px;">
+      如果你只是想找一个最快、最便宜的方案，这里可能并不适合你。  
+      但如果你在做一个影响未来十年甚至更久的决定，  
+      也许值得先把事情想清楚。
+    </p>
+    <p style="margin-top:24px;">📧 contact@globalpioneerconsulting.com</p>
   </div>
 </section>
 
