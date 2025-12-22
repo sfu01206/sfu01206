@@ -16,13 +16,8 @@
       line-height: 1.7;
       background: #fff;
     }
+    a { color: inherit; text-decoration: none; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Layout */
     .container {
       max-width: 1080px;
       margin: 0 auto;
@@ -31,20 +26,20 @@
 
     /* Navigation */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       height: 72px;
       border-bottom: 1px solid #eee;
       background: #fff;
     }
-
+    nav .inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
     .brand {
       font-weight: 600;
       font-size: 18px;
-      letter-spacing: 0.2px;
     }
-
     .menu a {
       margin-left: 28px;
       font-size: 16px;
@@ -57,22 +52,19 @@
       color: #fff;
       padding: 140px 0 120px;
     }
-
     .hero h1 {
       font-size: 42px;
       line-height: 1.35;
       max-width: 880px;
       margin: 0;
     }
-
     .hero p {
       margin-top: 28px;
       font-size: 18px;
       max-width: 720px;
       opacity: 0.9;
     }
-
-    .hero .cta {
+    .cta {
       display: inline-block;
       margin-top: 42px;
       padding: 14px 36px;
@@ -80,34 +72,25 @@
       font-size: 16px;
     }
 
-    /* Section */
+    /* Sections */
     section {
       padding: 96px 0;
     }
-
     section h2 {
       font-size: 30px;
       margin-bottom: 36px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 48px;
     }
-
     .card h3 {
       font-size: 20px;
       margin-bottom: 14px;
     }
-
     .card p {
       color: #444;
-    }
-
-    /* Divider */
-    .divider {
-      border-top: 1px solid #eee;
     }
 
     /* Footer */
@@ -123,19 +106,18 @@
 
 <body>
 
-<!-- Navigation -->
 <nav>
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+  <div class="container inner">
     <div class="brand">Global Pioneer Consulting</div>
     <div class="menu">
-      <a href="#">判断方法</a>
+      <a href="index.html">首页</a>
+      <a href="methodology.html">判断方法</a>
       <a href="#">关于我们</a>
       <a href="#">联系</a>
     </div>
   </div>
 </nav>
 
-<!-- Hero -->
 <div class="hero">
   <div class="container">
     <h1>
@@ -144,95 +126,29 @@
       我们只负责一件事：<br>
       判断这件事，值不值得继续。
     </h1>
-
     <p>
       领锋国际咨询是一家独立的决策咨询机构。<br>
-      我们不销售项目、不参与佣金、<br>
-      只为客户提供理性、可复盘的判断支持。
+      不销售项目、不参与佣金、只对判断负责。
     </p>
-
     <a class="cta" href="#">申请初始判断</a>
   </div>
 </div>
 
-<!-- Section: What We Do -->
 <section>
   <div class="container">
     <h2>我们解决什么问题</h2>
     <div class="grid">
       <div class="card">
         <h3>信息不对称</h3>
-        <p>
-          当市场中的信息被销售逻辑主导，<br>
-          客户往往无法判断真实成本与真实风险。
-        </p>
+        <p>市场由销售驱动，客户难以判断真实成本与风险。</p>
       </div>
       <div class="card">
         <h3>不可逆决策</h3>
-        <p>
-          投资移民与身份规划，<br>
-          往往涉及不可回撤的时间与资金成本。
-        </p>
+        <p>身份与投资路径往往无法回撤。</p>
       </div>
       <div class="card">
         <h3>判断缺位</h3>
-        <p>
-          市场中充斥“方案”，<br>
-          却缺少真正站在客户一侧的判断。
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section: How We Work -->
-<section class="divider">
-  <div class="container">
-    <h2>我们如何工作</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>独立</h3>
-        <p>
-          不参与任何项目销售，<br>
-          不收取中介或第三方返佣。
-        </p>
-      </div>
-      <div class="card">
-        <h3>结构化</h3>
-        <p>
-          通过清晰的判断框架，<br>
-          拆解路径、成本、时间与风险。
-        </p>
-      </div>
-      <div class="card">
-        <h3>有边界</h3>
-        <p>
-          我们提供判断，<br>
-          不替客户做决定。
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section: Who It's For -->
-<section class="divider">
-  <div class="container">
-    <h2>这项服务适合谁</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>适合</h3>
-        <p>
-          面临重大身份或投资决策，<br>
-          希望在行动前获得独立判断的人。
-        </p>
-      </div>
-      <div class="card">
-        <h3>不适合</h3>
-        <p>
-          只寻找最低价格、<br>
-          或希望快速“下决定”的人。
-        </p>
+        <p>方案很多，但真正独立的判断极少。</p>
       </div>
     </div>
   </div>
