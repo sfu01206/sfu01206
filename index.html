@@ -4,141 +4,94 @@
 <meta charset="UTF-8">
 <title>Global Pioneer Consulting｜领锋国际咨询</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="独立的决策咨询机构，专注于移民、身份及资产路径的独立判断。">
 
 <style>
-:root {
-  --dark: #0f172a;
-  --gray: #475569;
-  --light: #f8fafc;
-  --accent: #ffffff;
+:root{
+  --dark:#0f172a;
+  --gray:#475569;
+  --light:#f5f7fa;
 }
 
-/* 基础优化：平滑滚动 */
-html {
-  scroll-behavior: smooth;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,
+  "PingFang SC","Helvetica Neue",Arial,sans-serif;
+  color:var(--dark);
+  line-height:1.8;
 }
 
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: var(--dark);
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
+.container{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 28px;
 }
 
-.container {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 32px;
+section{padding:110px 0}
+.alt{background:var(--light)}
+
+h1{font-size:44px;line-height:1.4}
+h2{font-size:32px;margin-bottom:36px}
+h3{font-size:20px;margin-bottom:12px}
+p{color:var(--gray);font-size:16px}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:72px;
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  z-index:100;
+}
+nav .inner{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:600;
+}
+.menu a{
+  margin-left:26px;
+  font-size:14px;
+  color:#334155;
+  text-decoration:none;
 }
 
-section { padding: 120px 0; }
-.alt { background: var(--light); }
+/* HERO */
+.hero{
+  min-height:95vh;
+  padding-top:72px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(to bottom,rgba(15,23,42,.55),rgba(15,23,42,.9)),
+    url("hero.jpg") center / cover no-repeat;
+  color:#fff;
+}
+.hero p{color:#e5e7eb;font-size:18px}
 
-/* 标题优化：增加字间距和响应式大小 */
-h1 { 
-    font-size: clamp(28px, 4vw, 46px); 
-    line-height: 1.4; 
-    letter-spacing: -0.02em;
-    font-weight: 700;
-}
-h2 { font-size: 32px; margin-bottom: 48px; letter-spacing: -0.01em; }
-h3 { font-size: 22px; margin-bottom: 16px; color: var(--dark); }
-p { color: var(--gray); font-size: 17px; }
-
-/* NAV - 增加了毛玻璃效果 */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 72px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid #e5e7eb;
-  z-index: 100;
-}
-nav .inner {
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--dark);
-}
-.menu a {
-  margin-left: 28px;
-  font-size: 14px;
-  color: var(--gray);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-.menu a:hover { color: var(--dark); }
-
-/* HERO - 修复背景图显示 */
-.hero {
-  min-height: 100vh;
-  padding-top: 72px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  /* 关键：这里直接引用你上传的 background.jpg */
-  background: 
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.9)),
-    url('background.jpg') center / cover no-repeat;
-  color: #fff;
-}
-
-.hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-.hero p {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 20px;
-    font-weight: 300;
-}
-
-/* GRID 布局优化 */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 56px;
-}
-
-.card-icon {
-    width: 40px;
-    height: 3px;
-    background: var(--dark);
-    margin-bottom: 24px;
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:48px;
 }
 
 /* FOOTER */
-footer {
-  padding: 80px 0;
-  background: #fff;
-  border-top: 1px solid #e5e7eb;
-  text-align: center;
-  font-size: 14px;
-  color: #94a3b8;
-}
-
-/* 移动端适配优化 */
-@media (max-width: 768px) {
-    section { padding: 80px 0; }
-    .menu { display: none; } /* 移动端可后续添加汉堡菜单 */
-    h1 { font-size: 26px; }
+footer{
+  padding:56px 0;
+  border-top:1px solid #e5e7eb;
+  text-align:center;
+  font-size:14px;
+  color:#64748b;
 }
 </style>
 </head>
@@ -148,14 +101,15 @@ footer {
 <nav>
   <div class="container inner">
     <div class="brand">
-      <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
-        <path d="M20 70 L50 20 L80 70" stroke="#0f172a" stroke-width="10"/>
-        <path d="M50 20 L50 85" stroke="#94a3b8" stroke-width="6"/>
+      <!-- GP LOGO -->
+      <svg width="36" height="36" viewBox="0 0 100 100" fill="none">
+        <path d="M20 70 L50 20 L80 70" stroke="#0f172a" stroke-width="9"/>
+        <path d="M50 20 L50 80" stroke="#94a3b8" stroke-width="6"/>
       </svg>
       Global Pioneer Consulting
     </div>
     <div class="menu">
-      <a href="#thinking">我们的思考</a>
+      <a href="#approach">我们的方式</a>
       <a href="#scope">判断范围</a>
       <a href="#work">合作方式</a>
       <a href="#contact">联系</a>
@@ -166,35 +120,41 @@ footer {
 <div class="hero">
   <div class="container">
     <h1>
-      很多移民与身份决定，<br>
-      并不是失败在条件不够，<br>
-      <span style="border-bottom: 2px solid rgba(255,255,255,0.4);">而是开始前，没人真正把事情想清楚。</span>
+      有些决定，并不复杂，<br>
+      只是需要被认真地想一遍。
     </h1>
-    <p style="max-width:760px; margin-top:40px; line-height:1.6;">
-      领锋国际咨询是一家独立的决策咨询机构。<br>
-      我们关注的不是“能不能做”，而是“值不值得做、风险在哪里、代价是什么”。
+    <p style="max-width:760px;margin-top:32px;">
+      领锋国际咨询是一家独立的决策咨询机构。  
+      我们专注于协助客户，在复杂且长期影响的选择中，  
+      建立清晰、理性的判断基础。
     </p>
   </div>
 </div>
 
-<section id="thinking">
+<section id="approach">
   <div class="container">
-    <h2>我们为什么专注于“判断”</h2>
+    <h2>我们关注什么</h2>
     <div class="grid">
       <div>
-        <div class="card-icon"></div>
-        <h3>一个反复出现的现实</h3>
-        <p>在大量移民与身份规划案例中，决策往往在信息不完整、利益高度绑定的情况下被快速推动，导致后期代价巨大。</p>
+        <h3>决策本身</h3>
+        <p>
+          在涉及身份、路径或长期安排的决策中，  
+          判断往往比执行更值得被认真对待。
+        </p>
       </div>
       <div>
-        <div class="card-icon"></div>
-        <h3>决策本身不可逆</h3>
-        <p>身份、路径与资产一旦进入流程，时间成本、机会成本与法律后果都很难回撤，判断的容错率极低。</p>
+        <h3>长期影响</h3>
+        <p>
+          我们关注选择在时间、成本与灵活性上的长期影响，  
+          而不仅是当下是否可行。
+        </p>
       </div>
       <div>
-        <div class="card-icon"></div>
-        <h3>判断却长期缺位</h3>
-        <p>市场上有大量执行者、销售者，但几乎没有独立站在客户一侧，系统性拆解风险与底层逻辑的角色。</p>
+        <h3>决策边界</h3>
+        <p>
+          明确哪些因素是确定的，  
+          哪些是假设，哪些需要被保留弹性。
+        </p>
       </div>
     </div>
   </div>
@@ -202,59 +162,73 @@ footer {
 
 <section class="alt">
   <div class="container">
-    <h2>领锋国际咨询的角色定位</h2>
-    <div style="max-width:820px;">
-        <p style="font-size:20px; color:var(--dark); font-weight:500;">我们不是移民中介，也不替代律师或项目方。</p>
-        <p>我们唯一代表的是客户的长期利益，并刻意与任何具体项目、佣金结构或成交结果保持距离。这种克制并非为了中立，而是为了让判断本身不被扭曲。</p>
-    </div>
+    <h2>我们的角色定位</h2>
+    <p style="max-width:820px;">
+      领锋国际咨询提供的是判断与分析服务，  
+      旨在帮助客户更清楚地理解自身处境与可选路径。
+    </p>
+    <p style="max-width:820px;margin-top:16px;">
+      我们不替客户做决定，  
+      而是协助客户在信息充分、逻辑清晰的前提下，  
+      做出更符合自身长期目标的选择。
+    </p>
   </div>
 </section>
 
 <section id="scope">
   <div class="container">
     <h2>当前判断覆盖范围</h2>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-      <div style="background:#fff; padding:24px; border:1px solid #eee;"><h3>🇺🇸 美国 EB-5 / EB-1A</h3></div>
-      <div style="background:#fff; padding:24px; border:1px solid #eee;"><h3>🇹🇷 土耳其入籍</h3></div>
-      <div style="background:#fff; padding:24px; border:1px solid #eee;"><h3>🇬🇷 希腊购房移民</h3></div>
-      <div style="background:#fff; padding:24px; border:1px solid #eee;"><h3>🇵🇹 葡萄牙基金移民</h3></div>
+    <div class="grid">
+      <div><h3>🇺🇸 美国 EB-5 / EB-1A</h3></div>
+      <div><h3>🇹🇷 土耳其相关路径</h3></div>
+      <div><h3>🇬🇷 希腊相关路径</h3></div>
+      <div><h3>🇵🇹 葡萄牙相关路径</h3></div>
     </div>
-    <p style="margin-top:48px; max-width:820px; font-style:italic;">
-      * 覆盖并不等于推荐。每一条路径都需要结合个人目标、时间预期与风险承受能力重新判断。
+    <p style="margin-top:32px;max-width:820px;">
+      覆盖范围并不构成建议。  
+      每一项判断，均基于具体目标、时间预期与个人条件展开。
     </p>
   </div>
 </section>
 
 <section id="work" class="alt">
   <div class="container">
-    <h2>合作方式与边界</h2>
+    <h2>合作方式</h2>
     <div class="grid">
       <div>
-        <h3>我们提供什么</h3>
-        <p>系统性的判断分析，包括路径可行性评估、真实成本结构拆解、关键风险点预警与不可逆节点说明。</p>
+        <h3>我们提供</h3>
+        <p>
+          系统化的判断分析，  
+          协助厘清路径逻辑、关键变量与可能的权衡点。
+        </p>
       </div>
       <div>
-        <h3>我们刻意不提供什么</h3>
-        <p>不销售任何具体项目，不制造虚假的“窗口期”紧迫感，不以任何形式绑定或承诺成交结果。</p>
+        <h3>我们保持边界</h3>
+        <p>
+          我们专注于判断本身，  
+          确保分析过程不受其他因素干扰。
+        </p>
       </div>
       <div>
-        <h3>最终决策权</h3>
-        <p>我们不替客户做决定，但我们确保客户是在充分理解“硬币的两面”后，独立做出的理性选择。</p>
+        <h3>客户的角色</h3>
+        <p>
+          最终决策始终由客户自行作出，  
+          我们的工作止于帮助客户理解选择。
+        </p>
       </div>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <div class="container" style="text-align:center;">
-    <h2>如果你正在认真思考一个重大决定</h2>
-    <p style="max-width:700px; margin:0 auto 40px;">
-      在做一个影响未来多年且不可逆的选择时，<br>把事情真正想清楚，往往是成本最低、收益最高的一步。
+  <div class="container">
+    <h2>适合谁</h2>
+    <p style="max-width:820px;">
+      如果你正在面对一个需要长期承担后果的选择，  
+      并希望在行动之前，对不同可能性有更清晰的理解，  
+      欢迎进一步沟通。
     </p>
-    <div style="padding:32px; background:var(--dark); color:#fff; display:inline-block; border-radius:4px;">
-        <span style="opacity:0.7; font-size:14px; display:block; margin-bottom:8px;">联系邮箱</span>
-        <span style="font-size:20px; letter-spacing:1px;">contact@globalpioneerconsulting.com</span>
-    </div>
+    <p style="margin-top:24px;">📧 contact@globalpioneerconsulting.com</p>
   </div>
 </section>
 
