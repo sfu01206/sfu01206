@@ -25,10 +25,9 @@
       background: var(--light);
       color: var(--dark);
       line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
     }
     
-    /* 语言切换核心逻辑 */
+    /* 语言切换核心 */
     .lang-en .zh-only { display: none !important; }
     .lang-zh .en-only { display: none !important; }
     
@@ -44,7 +43,7 @@
     nav {
       max-width: 1480px;
       margin: 0 auto;
-      padding: 1.2rem 5%;
+      padding: 1.4rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -66,7 +65,7 @@
     .logo-g, .logo-p {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 3.2rem;
+      font-size: 3.8rem;
       line-height: 0.9;
       color: var(--primary);
       letter-spacing: -0.03em;
@@ -74,20 +73,18 @@
     
     .logo-p { color: var(--secondary); opacity: 0.92; }
     
-    .logo-text { font-weight: 700; color: var(--primary); letter-spacing: 1px; font-size: 0.9rem; }
-    
     .logo-slogan {
-      font-size: 0.75rem;
+      font-size: 0.82rem;
       font-weight: 500;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.8px;
       color: var(--gray);
-      margin-top: 0.2rem;
+      margin-top: 0.25rem;
       text-transform: uppercase;
     }
     
     nav ul {
       display: flex;
-      gap: 2.2rem;
+      gap: 2.8rem;
       list-style: none;
       align-items: center;
     }
@@ -96,144 +93,157 @@
       color: var(--dark);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       transition: color 0.3s;
     }
     nav a:hover { color: var(--secondary); }
     
-    /* 修复后的语言切换按钮 */
+    /* 修正：语言切换按钮始终可见 */
     .lang-switcher-nav {
       display: flex;
+      gap: 10px;
       align-items: center;
-      gap: 5px;
-      border-left: 1px solid var(--border);
-      padding-left: 1.5rem;
-      margin-left: 0.5rem;
+      margin-left: 1rem;
     }
 
     .lang-switch {
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       transition: all 0.3s;
       color: var(--gray);
     }
-    .lang-switch.active { color: var(--secondary); background: rgba(10,102,194,0.1); }
+    .lang-switch:hover { background: rgba(10,102,194,0.08); }
+    .lang-switch.active { color: var(--secondary); background: rgba(10,102,194,0.12); }
     
-    /* Hero Section - 优化间距与去急功近利 */
+    /* Hero - 修复间距 */
     #home {
-      padding-top: 100px;
-      min-height: 95vh;
+      padding-top: 160px;
+      min-height: 100vh; 
       display: flex;
       align-items: center;
       background: linear-gradient(135deg, #001F3F 0%, #08335e 100%);
       color: white;
-      text-align: center;
     }
     
     .hero-content {
-      max-width: 1100px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 0 5%;
+      padding: 0 6%;
+      text-align: center;
     }
     
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      margin-bottom: 4.5rem; /* 大幅增加标题与副标题的间距 */
-      line-height: 1.15;
-      letter-spacing: -0.01em;
+      font-size: clamp(3.2rem, 6vw, 5.2rem);
+      margin-bottom: 2.5rem;
+      line-height: 1.1;
     }
     
     .hero .subtitle {
-      font-size: clamp(1.2rem, 2vw, 1.6rem);
-      max-width: 850px;
-      margin: 0 auto;
-      opacity: 0.85;
+      font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+      max-width: 960px;
+      margin: 0 auto 5.5rem; /* 【修复点】大幅增加了subtitle与下方CTA按钮的间距 */
+      opacity: 0.92;
       font-weight: 300;
-      line-height: 2.2; /* 增加文字行高 */
+      line-height: 1.8;
     }
     
-    /* 通用 Section 间距 */
+    .btn-group {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .btn {
+      padding: 1.1rem 3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.4s;
+      font-size: 1.1rem;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    .btn-solid {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: white;
+      display: inline-block;
+      margin-top: 2rem;
+    }
+    
     section {
       padding: 10rem 5% 8rem;
-      max-width: 1400px;
+      max-width: 1480px;
       margin: 0 auto;
     }
     
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-size: clamp(2.6rem, 4vw, 3.8rem);
       text-align: center;
-      margin-bottom: 5rem; /* 增加标题与内容的间距 */
+      margin-bottom: 4rem;
       color: var(--primary);
     }
     
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 3.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 3rem;
     }
     
     .card {
       background: white;
-      padding: 3.5rem 2.8rem;
+      padding: 3rem 2.5rem;
       border-radius: 12px;
       box-shadow: var(--shadow);
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.4s;
     }
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 30px 60px rgba(0,31,63,0.15);
+      transform: translateY(-12px);
+      box-shadow: 0 24px 48px rgba(0,31,63,0.18);
     }
+    
+    .card h3 { margin-bottom: 1.4rem; color: var(--primary); font-size: 1.6rem; }
     
     .highlight-box {
       background: #001F3F;
       color: white;
-      padding: 6rem 4rem;
-      border-radius: 16px;
-      margin: 6rem auto;
-      max-width: 1100px;
+      padding: 5rem 4rem;
+      border-radius: 12px;
+      margin: 5rem auto;
+      max-width: 1200px;
       text-align: center;
-    }
-
-    .price-tag {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--secondary);
-      margin: 1.5rem 0;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 1.2rem 3.5rem;
-      background: var(--secondary);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      margin-top: 2rem;
-      transition: all 0.3s;
-    }
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(10,102,194,0.3);
     }
     
     footer {
       background: var(--dark);
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.75);
       text-align: center;
-      padding: 5rem 5% 3rem;
-      font-size: 0.9rem;
+      padding: 6rem 5% 4rem;
+      font-size: 0.95rem;
     }
     
     @media (max-width: 768px) {
       nav ul { display: none; }
-      .hero h1 { margin-bottom: 3rem; }
-      section { padding: 6rem 5%; }
+      .hero h1 { font-size: 3.2rem; }
+      .btn-group { flex-direction: column; gap: 1rem; }
     }
   </style>
 </head>
@@ -257,14 +267,13 @@
       
       <ul>
         <li><a href="#home" class="zh-only">首页</a><a href="#home" class="en-only">Home</a></li>
-        <li><a href="#about" class="zh-only">立场</a><a href="#about" class="en-only">Principles</a></li>
+        <li><a href="#about" class="zh-only">立场与原则</a><a href="#about" class="en-only">Principles</a></li>
         <li><a href="#services" class="zh-only">服务体系</a><a href="#services" class="en-only">Services</a></li>
         <li><a href="#projects" class="zh-only">专注项目</a><a href="#projects" class="en-only">Projects</a></li>
         <li><a href="#contact" class="zh-only">联系咨询</a><a href="#contact" class="en-only">Contact</a></li>
         <li>
           <div class="lang-switcher-nav">
             <span id="btn-zh" class="lang-switch active" onclick="switchLang('zh')">中文</span>
-            <span style="color: #E5E7EB; font-size: 0.8rem;">|</span>
             <span id="btn-en" class="lang-switch" onclick="switchLang('en')">EN</span>
           </div>
         </li>
@@ -279,18 +288,25 @@
       
       <p class="subtitle zh-only">我们不代理项目、不收取返佣、不做中介。<br>专注深度尽调、风险拆解、长期陪伴，帮助您在信息不对称的市场中做出更明智的全球身份与投资决策。</p>
       <p class="subtitle en-only">We do not represent programs, accept commissions, or act as intermediaries.<br>Focused on rigorous due diligence, risk dissection, and long-term support to empower informed global identity and investment decisions.</p>
+      
+      <div class="btn-group">
+        <a href="#about" class="btn btn-outline zh-only">了解我们的立场</a>
+        <a href="#about" class="btn btn-outline en-only">Our Position</a>
+        <a href="#contact" class="btn btn-solid zh-only">联系咨询</a>
+        <a href="#contact" class="btn btn-solid en-only">Get in Touch</a>
+      </div>
     </div>
   </section>
 
   <section id="about">
     <div class="highlight-box">
-      <h2 style="color:white; margin-bottom:2.5rem;" class="zh-only">我们的绝对边界</h2>
-      <h2 style="color:white; margin-bottom:2.5rem;" class="en-only">Our Absolute Boundaries</h2>
-      <p style="max-width:850px; margin:0 auto; font-size:1.25rem; line-height:2.2;" class="zh-only">
+      <h2 style="color:white; margin-bottom:2rem;" class="zh-only">我们的绝对边界</h2>
+      <h2 style="color:white; margin-bottom:2rem;" class="en-only">Our Absolute Boundaries</h2>
+      <p style="max-width:900px; margin:0 auto; font-size:1.25rem; line-height:2;" class="zh-only">
         <strong>“我们不代理项目，所以我们可以说真话。”</strong><br>
         不经手资金 · 不代提交申请 · 不与任何项目方/中介存在利益关联。<br>收入唯一来源：您的咨询费。
       </p>
-      <p style="max-width:850px; margin:0 auto; font-size:1.15rem; line-height:2.2;" class="en-only">
+      <p style="max-width:900px; margin:0 auto; font-size:1.15rem; line-height:2;" class="en-only">
         "We do not represent projects, so we can speak the truth."<br>
         No fund handling · No application submission · No affiliation with sponsors.<br>Revenue: Your consulting fee only.
       </p>
@@ -299,107 +315,49 @@
     <div class="grid-3">
       <div class="card">
         <h3 class="zh-only">深度专业能力</h3>
-        <h3 class="en-only">Professional Expertise</h3>
+        <h3 class="en-only">Expertise</h3>
         <p class="zh-only">多年项目方一线经验，最懂信息差套路、包装水分、隐性条款。</p>
         <p class="en-only">Years of project-side experience. We know exactly how programs are packaged and where the hidden risks lie.</p>
       </div>
       <div class="card">
         <h3 class="zh-only">纯粹客户视角</h3>
-        <h3 class="en-only">Pure Client Perspective</h3>
+        <h3 class="en-only">Client Focus</h3>
         <p class="zh-only">始终对冲中介机构的利益偏差，确保您的每一笔投资决策都有客观依据。</p>
-        <p class="en-only">Counterbalancing agency bias to ensure every investment decision is based on objective data.</p>
+        <p class="en-only">Always counterbalancing agency bias to ensure every investment decision is based on objective grounds.</p>
       </div>
       <div class="card">
         <h3 class="zh-only">可持续长期陪伴</h3>
-        <h3 class="en-only">Long-term Partnership</h3>
-        <p class="zh-only">从初期避坑到后期多代规划，我们提供的是覆盖全生命周期的风险监控。</p>
-        <p class="en-only">From initial risk avoidance to multi-generational planning, we provide life-cycle monitoring.</p>
+        <h3 class="en-only">Partnership</h3>
+        <p class="zh-only">从初期避坑，到中期优化，再到家族多代规划与年度监控，形成完整闭环。</p>
+        <p class="en-only">From early pit avoidance to mid-stage optimization and long-term family planning.</p>
       </div>
     </div>
   </section>
 
-  <section id="services" style="background: #fdfdfd;">
-    <h2 class="zh-only">服务体系</h2>
-    <h2 class="en-only">Service Tiers</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3 class="zh-only">初步风险扫描</h3>
-        <h3 class="en-only">Initial Risk Scan</h3>
-        <div class="price-tag">999 元</div>
-        <p class="zh-only">30~45分钟对话，快速排除明显不靠谱项目。</p>
-        <p class="en-only">30-45 min consultation to rule out problematic programs.</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">单项目深度尽调</h3>
-        <h3 class="en-only">Project Due Diligence</h3>
-        <div class="price-tag">2.8万 ~ 4.8万</div>
-        <p class="zh-only">12~20页专业报告，包含成本拆解与黑箱分析。</p>
-        <p class="en-only">12-20 page report including real cost breakdown.</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">年度监控订阅</h3>
-        <h3 class="en-only">Annual Monitoring</h3>
-        <div class="price-tag">3.8万 / 年</div>
-        <p class="zh-only">政策变化即时预警，适合已完成投资的家庭。</p>
-        <p class="en-only">Real-time policy alerts for families who have already invested.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2 class="zh-only">核心专注领域</h2>
-    <h2 class="en-only">Core Focus</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3 class="zh-only">葡萄牙基金</h3>
-        <p class="zh-only">质量评估 · 退出条款 · 流动性风险</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">美国 EB-5</h3>
-        <p class="zh-only">区域中心安全 · 资金链审核 · 就业计算</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">土耳其/希腊房产</h3>
-        <p class="zh-only">估值水分 · 法律合规 · 退出可能性</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" style="background: white; border-top: 1px solid var(--border);">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-      <h2 class="zh-only">联系我们</h2>
-      <h2 class="en-only">Get in Touch</h2>
-      <p class="zh-only" style="font-size: 1.2rem; color: var(--gray); margin-bottom: 3rem;">
-        我们理解高净值家庭在做决策时的谨慎。如果您已阅读上述立场并认可我们的价值，欢迎通过以下方式开启初步沟通。
+  <section id="contact">
+    <h2 class="zh-only">联系我们</h2>
+    <h2 class="en-only">Contact Us</h2>
+    <div style="text-align:center;">
+      <p style="font-size:1.8rem; font-weight:700; color:var(--secondary); margin-bottom: 2rem;">
+        contact@globalpioneer.consulting
       </p>
-      <p class="en-only" style="font-size: 1.1rem; color: var(--gray); margin-bottom: 3rem;">
-        We respect the caution of HNW families. If you align with our values, feel free to reach out for an initial discussion.
-      </p>
-      
-      <div style="margin-bottom: 3rem;">
-        <p style="font-size: 1.8rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem;">
-          contact@globalpioneer.consulting
-        </p>
-        <p style="font-size: 1.2rem; color: var(--secondary);">WeChat: GlobalPioneer</p>
-      </div>
-
-      <a href="mailto:contact@globalpioneer.consulting" class="btn-primary zh-only">发送邮件咨询</a>
-      <a href="mailto:contact@globalpioneer.consulting" class="btn-primary en-only">Contact via Email</a>
+      <a href="mailto:contact@globalpioneer.consulting" class="btn btn-primary zh-only">通过邮件联系</a>
+      <a href="mailto:contact@globalpioneer.consulting" class="btn btn-primary en-only">Contact via Email</a>
+      <p style="margin-top:3rem; font-size:1.2rem;">WeChat: GlobalPioneer</p>
     </div>
   </section>
 
   <footer>
-    <p class="zh-only">© 2025 领锋国际咨询 · 独立顾问 · 透明定价 · 只为客户说话</p>
-    <p class="en-only">© 2025 Global Pioneer Consulting · Independent Advisory · Client-First</p>
+    <p class="zh-only">© 2025 领锋国际咨询 · 独立顾问 · 透明定价</p>
+    <p class="en-only">© 2025 Global Pioneer Consulting · Independent Advisory</p>
   </footer>
 
   <script>
-    // 语言切换函数
+    // 语言切换功能修复
     function switchLang(lang) {
       const body = document.body;
       const btnZh = document.getElementById('btn-zh');
       const btnEn = document.getElementById('btn-en');
-
       if (lang === 'zh') {
         body.classList.remove('lang-en');
         body.classList.add('lang-zh');
@@ -417,13 +375,9 @@
     document.querySelectorAll('a[href^="#"]').forEach(el => {
       el.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
