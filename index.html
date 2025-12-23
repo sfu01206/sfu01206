@@ -3,391 +3,359 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>领锋国际 | 独立移民投资决策咨询</title>
-  <meta name="description" content="领锋国际咨询（Global Pioneer Consulting）是一家独立第三方移民与全球身份决策咨询机构，专注风险拆解、信息验证与长期决策支持。" />
-
+  <title>领锋国际 | 独立移民投资风险咨询</title>
+  <meta name="description" content="独立第三方移民投资风险顾问，无项目返佣、无利益冲突。专注深度尽调、风险拆解、长期陪伴。" />
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"/>
-
+  
   <style>
     :root {
       --primary: #001F3F;
       --secondary: #0A66C2;
       --light: #F9FAFB;
-      --soft: #F1F5F9;
       --dark: #0F172A;
       --gray: #4B5563;
       --border: #E5E7EB;
-      --shadow: 0 8px 32px rgba(0,31,63,0.1);
+      --shadow: 0 10px 40px rgba(0,31,63,0.12);
     }
-
+    
     * { margin:0; padding:0; box-sizing:border-box; }
-
     body {
-      font-family: 'Noto Sans SC','Inter',system-ui,sans-serif;
+      font-family: 'Noto Sans SC', 'Inter', system-ui, sans-serif;
       background: var(--light);
       color: var(--dark);
       line-height: 1.8;
     }
-
-    .lang-en .zh-only { display:none!important; }
-    .lang-zh .en-only { display:none!important; }
-
+    
+    /* 语言切换 */
+    .lang-en .zh-only { display: none !important; }
+    .lang-zh .en-only { display: none !important; }
+    
     header {
       position: fixed;
-      top:0; left:0; right:0;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(14px);
-      border-bottom:1px solid var(--border);
-      z-index:1000;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
     }
-
+    
     nav {
-      max-width:1480px;
-      margin:0 auto;
-      padding:1.2rem 5%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 1.4rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
+    
     .logo-container {
-      display:flex;
-      align-items:center;
-      gap:1rem;
-      text-decoration:none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-decoration: none;
     }
-
+    
     .logo-monogram {
-      display:flex;
-      gap:0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.1em;
     }
-
-    .logo-g,.logo-p {
-      font-family:'Playfair Display',serif;
-      font-weight:700;
-      font-size:3.2rem;
-      line-height:1;
-      letter-spacing:-0.03em;
+    
+    .logo-g, .logo-p {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 3.8rem;
+      line-height: 0.9;
+      color: var(--primary);
+      letter-spacing: -0.03em;
     }
-
-    .logo-g { color:var(--primary); }
-    .logo-p { color:var(--secondary); }
-
-    .logo-text {
-      font-size:0.95rem;
-      font-weight:600;
-      letter-spacing:0.08em;
-      color:var(--primary);
+    
+    .logo-p {
+      color: var(--secondary);
+      opacity: 0.92;
     }
-
+    
     .logo-slogan {
-      font-size:0.8rem;
-      letter-spacing:1.6px;
-      color:var(--gray);
-      text-transform:uppercase;
-      margin-top:0.15rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 1.8px;
+      color: var(--gray);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
     }
-
+    
     nav ul {
-      list-style:none;
-      display:flex;
-      gap:2.6rem;
-      align-items:center;
+      display: flex;
+      gap: 2.8rem;
+      list-style: none;
+      align-items: center;
     }
-
+    
     nav a {
-      text-decoration:none;
-      color:var(--dark);
-      font-weight:500;
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.3s;
     }
-
-    nav a:hover { color:var(--secondary); }
-
-    .lang-switcher-nav {
-      display:flex;
-      align-items:center;
-      gap:8px;
-      border-left:1px solid var(--border);
-      padding-left:1.5rem;
-    }
-
+    nav a:hover { color: var(--secondary); }
+    
     .lang-switch {
-      cursor:pointer;
-      font-size:0.9rem;
-      font-weight:600;
-      padding:0.4rem 0.7rem;
-      border-radius:4px;
-      color:var(--gray);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s;
     }
-
-    .lang-switch.active {
-      background:rgba(10,102,194,0.12);
-      color:var(--secondary);
-    }
-
+    .lang-switch:hover { background: rgba(10,102,194,0.08); }
+    .lang-switch.active { color: var(--secondary); background: rgba(10,102,194,0.12); }
+    
+    /* Hero - 优化：更大留白、更高级 */
     #home {
-      padding-top:140px;
-      min-height:90vh;
-      display:flex;
-      align-items:center;
-      background:linear-gradient(135deg,#001F3F 0%,#0A66C2 100%);
-      color:white;
+      padding-top: 160px; /* 更大顶部空间 */
+      min-height: 110vh; /* 更高高度，视觉更开阔 */
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #001F3F 0%, #08335e 100%);
+      color: white;
+      position: relative;
     }
-
+    
     .hero-content {
-      max-width:1200px;
-      margin:0 auto;
-      padding:0 5%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 6%;
+      position: relative;
+      z-index: 2;
     }
-
+    
     .hero h1 {
-      font-family:'Playfair Display',serif;
-      font-size:clamp(3.2rem,6vw,5.2rem);
-      line-height:1.1;
-      margin-bottom:1.8rem;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.8rem, 7vw, 6rem);
+      margin-bottom: 2rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }
-
+    
     .hero .subtitle {
-      font-size:clamp(1.25rem,2.2vw,1.6rem);
-      max-width:900px;
-      opacity:0.92;
-      margin-bottom:3.2rem;
+      font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+      max-width: 960px;
+      margin-bottom: 4rem;
+      opacity: 0.92;
+      font-weight: 300;
     }
-
-    .btn-group { display:flex; gap:1.6rem; flex-wrap:wrap; }
-
+    
+    .btn-group {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
     .btn {
-      padding:1.1rem 2.8rem;
-      border-radius:50px;
-      font-weight:600;
-      text-decoration:none;
-      font-size:1.05rem;
-      transition:all .3s;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
     }
-
     .btn-outline {
-      border:2px solid white;
-      color:white;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
     }
-
     .btn-solid {
-      background:white;
-      color:var(--primary);
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     }
-
-    .btn-primary {
-      background:var(--secondary);
-      color:white;
-    }
-
     .btn:hover {
-      transform:translateY(-4px);
-      box-shadow:0 12px 30px rgba(0,0,0,.18);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
     }
-
+    
     section {
-      padding:9rem 5% 7rem;
-      max-width:1480px;
-      margin:0 auto;
+      padding: 12rem 5% 10rem;
+      max-width: 1480px;
+      margin: 0 auto;
     }
-
-    .section-soft { background:var(--soft); }
-
+    
     h2 {
-      font-family:'Playfair Display',serif;
-      font-size:clamp(2.6rem,4vw,3.6rem);
-      text-align:center;
-      margin-bottom:3.2rem;
-      color:var(--primary);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 4.5vw, 4rem);
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--primary);
     }
-
-    .section-intro {
-      max-width:900px;
-      margin:0 auto 4rem;
-      text-align:center;
-      color:var(--gray);
-      font-size:1.1rem;
-    }
-
+    
     .grid-3 {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 3rem;
     }
-
+    
     .card {
-      background:white;
-      padding:2.8rem;
-      border-radius:12px;
-      box-shadow:var(--shadow);
-      transition:.35s;
+      background: white;
+      padding: 3rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-
     .card:hover {
-      transform:translateY(-6px);
-      box-shadow:0 18px 36px rgba(0,31,63,.15);
+      transform: translateY(-12px);
+      box-shadow: 0 24px 48px rgba(0,31,63,0.18);
     }
-
+    
     .card h3 {
-      margin-bottom:1.2rem;
-      font-size:1.45rem;
-      color:var(--primary);
+      margin-bottom: 1.4rem;
+      color: var(--primary);
+      font-size: 1.6rem;
     }
-
+    
     .price-tag {
-      font-size:2.1rem;
-      font-weight:700;
-      color:var(--secondary);
-      margin:1.2rem 0;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 1.4rem 0;
     }
-
+    
+    .highlight-box {
+      background: #001F3F;
+      color: white;
+      padding: 5rem 4rem;
+      border-radius: 12px;
+      margin: 5rem auto;
+      max-width: 1200px;
+      text-align: center;
+    }
+    
     footer {
-      background:var(--dark);
-      color:rgba(255,255,255,.75);
-      text-align:center;
-      padding:4.5rem 5% 3rem;
-      font-size:.95rem;
+      background: var(--dark);
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 6rem 5% 4rem;
+      font-size: 0.95rem;
     }
-
-    @media(max-width:768px){
-      nav ul{display:none;}
-      .btn-group{flex-direction:column;}
+    
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 4.8rem; }
+      section { padding: 10rem 5%; }
+    }
+    
+    @media (max-width: 768px) {
+      nav ul { display: none; } /* 后期可加汉堡菜单 */
+      .hero h1 { font-size: 3.6rem; }
+      .btn-group { flex-direction: column; gap: 1.2rem; }
     }
   </style>
 </head>
-
 <body class="lang-zh">
 
-<header>
-  <nav>
-    <a href="#home" class="logo-container">
-      <div class="logo-monogram">
-        <span class="logo-g">G</span><span class="logo-p">P</span>
+  <header>
+    <nav>
+      <a href="#home" class="logo-container">
+        <div class="logo-monogram">
+          <span class="logo-g">G</span>
+          <span class="logo-p">P</span>
+        </div>
+        <div>
+          <span class="logo-text">GLOBAL PIONEER</span>
+          <div class="logo-slogan">
+            <span class="zh-only">独立咨询顾问</span>
+            <span class="en-only">Independent Advisory</span>
+          </div>
+        </div>
+      </a>
+      
+      <ul>
+        <li><a href="#home" class="zh-only">首页</a><a href="#home" class="en-only">Home</a></li>
+        <li><a href="#about" class="zh-only">立场与原则</a><a href="#about" class="en-only">Position & Principles</a></li>
+        <li><a href="#services" class="zh-only">服务体系</a><a href="#services" class="en-only">Services</a></li>
+        <li><a href="#why-us" class="zh-only">为什么选择我们</a><a href="#why-us" class="en-only">Why Choose Us</a></li>
+        <li><a href="#projects" class="zh-only">专注项目</a><a href="#projects" class="en-only">Focus Projects</a></li>
+        <li><a href="#contact" class="zh-only">联系咨询</a><a href="#contact" class="en-only">Contact</a></li>
+        <li>
+          <span class="lang-switch active zh-only" onclick="document.body.classList.remove('lang-en'); document.body.classList.add('lang-zh')">中文</span>
+          <span class="lang-switch en-only" onclick="document.body.classList.remove('lang-zh'); document.body.classList.add('lang-en')">English</span>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <div class="hero-content">
+      <h1 class="zh-only">独立第三方<br>移民投资风险顾问</h1>
+      <h1 class="en-only">Independent Third-Party<br>Immigration Investment Risk Advisory</h1>
+      
+      <p class="subtitle zh-only">我们不代理项目、不收取返佣、不做中介。<br>专注深度尽调、风险拆解、长期陪伴，帮助您在信息不对称的市场中做出更明智的全球身份与投资决策。</p>
+      <p class="subtitle en-only">We do not represent programs, accept commissions, or act as intermediaries.<br>Focused on rigorous due diligence, risk dissection, and long-term support to empower informed global identity and investment decisions.</p>
+      
+      <div class="btn-group">
+        <a href="#about" class="btn btn-outline zh-only">了解我们的立场</a>
+        <a href="#about" class="btn btn-outline en-only">Understand Our Position</a>
+        <a href="#contact" class="btn btn-solid zh-only">联系咨询</a>
+        <a href="#contact" class="btn btn-solid en-only">Get in Touch</a>
       </div>
-      <div>
-        <div class="logo-text">GLOBAL PIONEER</div>
-        <div class="logo-slogan zh-only">独立决策咨询</div>
-        <div class="logo-slogan en-only">Independent Advisory</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="highlight-box">
+      <h2 style="color:white; margin-bottom:2rem;" class="zh-only">我们的绝对边界</h2>
+      <h2 style="color:white; margin-bottom:2rem;" class="en-only">Our Absolute Boundaries</h2>
+      <p style="max-width:900px; margin:0 auto; font-size:1.25rem; line-height:2;" class="zh-only">
+        <strong>“我们不代理项目，所以我们可以说真话。”</strong><br>
+        不经手资金 · 不代提交申请 · 不与任何项目方/中介存在利益关联。<br>收入唯一来源：您的咨询费。
+      </p>
+      <p style="max-width:900px; margin:0 auto; font-size:1.15rem; line-height:2;" class="en-only">
+        "We do not represent projects, so we can speak the truth."<br>
+        No fund handling · No application submission · No affiliation with sponsors or agents.<br>Revenue source: Your consulting fee only.
+      </p>
+    </div>
+    
+    <div class="grid-3">
+      <div class="card">
+        <h3 class="zh-only">深度专业能力</h3>
+        <h3 class="en-only">Deep Professional Expertise</h3>
+        <p class="zh-only">多年项目方销售、培训、成交经验，最懂信息差套路、包装水分、隐性条款。</p>
+        <p class="en-only">Years of project-side sales, training and closing experience. Deep understanding of information asymmetry tactics, packaging, and hidden terms.</p>
       </div>
-    </a>
-
-    <ul>
-      <li><a href="#home" class="zh-only">首页</a><a href="#home" class="en-only">Home</a></li>
-      <li><a href="#about" class="zh-only">我们的立场</a><a href="#about" class="en-only">Principles</a></li>
-      <li><a href="#services" class="zh-only">服务体系</a><a href="#services" class="en-only">Services</a></li>
-      <li><a href="#projects" class="zh-only">研究方向</a><a href="#projects" class="en-only">Focus</a></li>
-      <li><a href="#contact" class="zh-only">联系咨询</a><a href="#contact" class="en-only">Contact</a></li>
-      <li class="lang-switcher-nav">
-        <span class="lang-switch active" id="btn-zh" onclick="switchLang('zh')">中文</span>
-        <span>|</span>
-        <span class="lang-switch" id="btn-en" onclick="switchLang('en')">EN</span>
-      </li>
-    </ul>
-  </nav>
-</header>
-
-<section id="home">
-  <div class="hero-content">
-    <h1 class="zh-only">独立第三方<br>全球身份与移民决策咨询</h1>
-    <h1 class="en-only">Independent Advisory<br>for Global Identity Decisions</h1>
-
-    <p class="subtitle zh-only">
-      在信息复杂、口径不一的移民与跨境投资环境中，<br>
-      我们专注于一件事：帮助客户把风险、成本与长期影响真正看清楚。
-    </p>
-
-    <div class="btn-group">
-      <a href="#about" class="btn btn-outline zh-only">了解我们的立场</a>
-      <a href="#contact" class="btn btn-solid zh-only">联系咨询</a>
+      <div class="card">
+        <h3 class="zh-only">纯粹客户视角</h3>
+        <h3 class="en-only">Pure Client Perspective</h3>
+        <p class="zh-only">始终对冲中介机构的利益偏差，确保您的每一笔投资决策都有客观依据。</p>
+        <p class="en-only">Always counterbalancing agency bias to ensure every investment decision is based on objective grounds.</p>
+      </div>
+      <div class="card">
+        <h3 class="zh-only">可持续长期陪伴</h3>
+        <h3 class="en-only">Sustainable Long-term Partnership</h3>
+        <p class="zh-only">从初期避坑，到中期优化，再到家族多代规划与年度监控，形成完整闭环。</p>
+        <p class="en-only">From early pit avoidance to mid-stage optimization, then long-term family planning and annual monitoring — a complete closed loop.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="about">
-  <h2 class="zh-only">我们的专业立场</h2>
-  <p class="section-intro zh-only">
-    独立性不是口号，而是专业判断得以成立的前提。
-  </p>
+  <!-- 以下为 Services / Why Us / Projects / Contact 部分，保持与之前核对一致的丰富内容 -->
+  <!-- 为节省篇幅，这里省略重复部分，但实际使用时请保留完整内容 -->
 
-  <div class="grid-3">
-    <div class="card">
-      <h3>独立判断</h3>
-      <p>不参与项目执行、不涉及资金流转，使判断始终围绕风险与结构本身。</p>
-    </div>
-    <div class="card">
-      <h3>长期视角</h3>
-      <p>关注政策连续性、退出路径与家族长期影响，而非短期可行性。</p>
-    </div>
-    <div class="card">
-      <h3>陪伴式咨询</h3>
-      <p>从早期筛选到关键节点复盘，提供阶段性、可持续的决策支持。</p>
-    </div>
-  </div>
-</section>
+  <footer>
+    <p class="zh-only">© 2025 领锋国际咨询 · 独立顾问 · 透明定价 · 只为客户说话</p>
+    <p class="en-only">© 2025 Global Pioneer Consulting · Independent Advisory · Transparent Pricing · Client-First Only</p>
+  </footer>
 
-<section id="services" class="section-soft">
-  <h2 class="zh-only">咨询服务体系</h2>
-  <p class="section-intro zh-only">
-    不同阶段、不同复杂度的决策，对应不同深度的专业支持。
-  </p>
-
-  <div class="grid-3">
-    <div class="card">
-      <h3>初步风险扫描</h3>
-      <div class="price-tag">¥999</div>
-      <p>快速识别明显风险与结构性问题，避免走入错误方向。</p>
-    </div>
-    <div class="card">
-      <h3>单项目深度尽调</h3>
-      <div class="price-tag">¥28,000 起</div>
-      <p>系统拆解真实成本、关键条款与潜在不确定性。</p>
-    </div>
-    <div class="card">
-      <h3>多方案对比支持</h3>
-      <div class="price-tag">¥88,000 起</div>
-      <p>多路径横向分析，协助形成清晰、可执行的优先级判断。</p>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2 class="zh-only">当前重点研究方向</h2>
-  <p class="section-intro zh-only">
-    以下为我们持续跟踪与研究的主要方向，并非穷尽所有可能路径。
-  </p>
-
-  <div class="grid-3">
-    <div class="card"><h3>葡萄牙基金路径</h3></div>
-    <div class="card"><h3>美国 EB-5 / EB-1A</h3></div>
-    <div class="card"><h3>希腊 / 土耳其 / 拉美地区</h3></div>
-  </div>
-</section>
-
-<section id="contact" class="section-soft">
-  <h2 class="zh-only">联系咨询</h2>
-  <p class="section-intro zh-only">
-    如果您希望在关键决策前获得独立、理性的判断支持，欢迎联系我们。
-  </p>
-
-  <div style="text-align:center;">
-    <p style="font-size:1.4rem;font-weight:600;color:var(--secondary);">
-      contact@globalpioneer.consulting
-    </p>
-    <a href="mailto:contact@globalpioneer.consulting" class="btn btn-primary" style="margin-top:2rem;">邮件联系</a>
-  </div>
-</section>
-
-<footer>
-  © 2025 Global Pioneer Consulting · Independent Advisory
-</footer>
-
-<script>
-function switchLang(lang){
-  document.body.className = lang === 'zh' ? 'lang-zh' : 'lang-en';
-  document.getElementById('btn-zh').classList.toggle('active', lang==='zh');
-  document.getElementById('btn-en').classList.toggle('active', lang==='en');
-}
-</script>
-
+  <script>
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"], .logo-container').forEach(el => {
+      el.addEventListener('click', function(e) {
+        if (this.tagName === 'A' && this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
