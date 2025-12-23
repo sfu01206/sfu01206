@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>领锋国际 | 独立移民投资风险咨询</title>
-  <meta name="description" content="独立第三方移民投资风险顾问，无项目返佣、无利益冲突。专注葡萄牙基金、土耳其入籍、希腊/巴拿马房产、美国EB-5 & EB-1A等项目，帮助高净值家庭识别和管理真实风险。"/>
+  <meta name="description" content="独立第三方移民投资风险顾问，无项目返佣、无利益冲突。专注葡萄牙基金、土耳其入籍、希腊/巴拿马房产、美国EB-5 & EB-1A等项目，帮助高净值家庭避坑并做出更明智决策。" />
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
   
   <style>
     :root {
@@ -17,12 +17,12 @@
       --gray: #4B5563;
       --border: #E5E7EB;
       --shadow: 0 4px 20px rgba(0,31,63,0.08);
-      --shadow-lg: 0 10px 30px rgba(0,31,63,0.12);
+      --shadow-hover: 0 12px 32px rgba(0,31,63,0.15);
     }
     
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: 'Noto Sans SC', 'Inter', sans-serif;
+      font-family: 'Noto Sans SC', 'Inter', system-ui, sans-serif;
       background: var(--light);
       color: var(--dark);
       line-height: 1.8;
@@ -35,8 +35,9 @@
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(255,255,255,0.98);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
     }
@@ -69,8 +70,8 @@
       font-size: 3.3rem;
       color: var(--primary);
     }
-    .logo-g { left: 0; top: -3px; }
-    .logo-p { right: 0; bottom: -5px; transform: translateX(5px); }
+    .logo-g { left: 0; top: -2px; }
+    .logo-p { right: -1px; bottom: -4px; color: var(--secondary); opacity: 0.9; }
     
     .logo-text {
       font-size: 1.4rem;
@@ -99,7 +100,7 @@
       font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
-      padding: 0.45rem 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 6px;
       transition: all 0.3s;
     }
@@ -109,7 +110,7 @@
     /* Hero */
     #home {
       padding-top: 140px;
-      min-height: 85vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       background: linear-gradient(135deg, #001F3F 0%, #0A66C2 100%);
@@ -124,34 +125,45 @@
     
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 4.8rem;
+      font-size: clamp(3rem, 6vw, 5rem);
       margin-bottom: 1.5rem;
       line-height: 1.1;
     }
     
     .hero .subtitle {
-      font-size: 1.6rem;
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
       max-width: 900px;
-      margin-bottom: 2.5rem;
-      opacity: 0.92;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+      font-weight: 300;
     }
     
-    .btn-primary {
-      display: inline-block;
-      padding: 1.1rem 2.8rem;
-      background: white;
-      color: var(--primary);
+    .btn-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 1.1rem 2.6rem;
+      border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
-      border-radius: 50px;
-      font-size: 1.15rem;
       transition: all 0.35s;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      font-size: 1.1rem;
     }
-    .btn-primary:hover {
+    .btn-white {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    .btn-blue {
       background: var(--secondary);
       color: white;
+    }
+    .btn:hover {
       transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     }
     
     section {
@@ -162,9 +174,9 @@
     
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.4rem;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
       color: var(--primary);
     }
     
@@ -172,39 +184,56 @@
     
     .card {
       background: white;
-      padding: 2.5rem;
+      padding: 2.6rem;
       border-radius: 12px;
       box-shadow: var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    .card h3 {
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+      font-size: 1.5rem;
     }
     
     .price-tag {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 700;
       color: var(--secondary);
       margin: 1.2rem 0;
     }
     
-    .highlight { color: var(--secondary); font-weight: 600; }
-    
-    .boundary-box {
-      background: #F1F5F9;
-      border-left: 5px solid var(--secondary);
-      padding: 2rem;
-      border-radius: 8px;
-      margin: 3rem auto;
+    .highlight-box {
+      background: #001F3F;
+      color: white;
+      padding: 4rem 3rem;
+      border-radius: 12px;
+      margin: 4rem auto;
       max-width: 1100px;
+      text-align: center;
     }
     
     footer {
-      background: var(--primary);
-      color: white;
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
       text-align: center;
-      padding: 4rem 5% 3rem;
+      padding: 5rem 5% 3rem;
+      font-size: 0.95rem;
+    }
+    
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 3.8rem; }
+      section { padding: 8rem 5%; }
+    }
+    
+    @media (max-width: 768px) {
+      nav ul { display: none; } /* 后期可加汉堡 */
+      .hero h1 { font-size: 3rem; }
+      .btn-group { flex-direction: column; }
     }
   </style>
 </head>
@@ -212,24 +241,24 @@
 
   <header>
     <nav>
-      <div class="logo-container" onclick="document.location.href='#home'">
+      <a href="#home" class="logo-container">
         <div class="logo-monogram">
           <span class="logo-g">G</span>
           <span class="logo-p">P</span>
         </div>
         <span class="logo-text">GLOBAL PIONEER</span>
-      </div>
+      </a>
       
       <ul>
         <li><a href="#home" class="zh-only">首页</a><a href="#home" class="en-only">Home</a></li>
         <li><a href="#about" class="zh-only">立场与原则</a><a href="#about" class="en-only">Position & Principles</a></li>
-        <li><a href="#services" class="zh-only">咨询服务</a><a href="#services" class="en-only">Advisory Services</a></li>
+        <li><a href="#services" class="zh-only">服务体系</a><a href="#services" class="en-only">Services</a></li>
         <li><a href="#why-us" class="zh-only">为什么选择我们</a><a href="#why-us" class="en-only">Why Choose Us</a></li>
         <li><a href="#projects" class="zh-only">专注项目</a><a href="#projects" class="en-only">Focus Projects</a></li>
-        <li><a href="#contact" class="zh-only">联系咨询</a><a href="#contact" class="en-only">Get in Touch</a></li>
+        <li><a href="#contact" class="zh-only">联系咨询</a><a href="#contact" class="en-only">Contact</a></li>
         <li>
-          <span class="lang-switch active zh-only" onclick="document.body.classList.remove('lang-en');document.body.classList.add('lang-zh')">中文</span>
-          <span class="lang-switch en-only" onclick="document.body.classList.remove('lang-zh');document.body.classList.add('lang-en')">English</span>
+          <span class="lang-switch active zh-only" onclick="document.body.classList.remove('lang-en'); document.body.classList.add('lang-zh'); document.querySelectorAll('.lang-switch')[0].classList.add('active'); document.querySelectorAll('.lang-switch')[1].classList.remove('active');">中文</span>
+          <span class="lang-switch en-only" onclick="document.body.classList.remove('lang-zh'); document.body.classList.add('lang-en'); document.querySelectorAll('.lang-switch')[1].classList.add('active'); document.querySelectorAll('.lang-switch')[0].classList.remove('active');">English</span>
         </li>
       </ul>
     </nav>
@@ -240,115 +269,118 @@
       <h1 class="zh-only">独立第三方<br>移民投资风险顾问</h1>
       <h1 class="en-only">Independent Third-Party<br>Immigration Investment Risk Advisory</h1>
       
-      <p class="subtitle zh-only">我们站在客户这一边，不卖项目、不拿返佣、不做中介。<br>只专注帮您拆解信息差、识别真实风险、做出更明智的全球身份配置决策。</p>
-      <p class="subtitle en-only">We stand on the client's side. No project sales. No commissions. No agency.<br>Focused solely on dismantling information asymmetry, identifying real risks, and enabling better-informed global identity and investment decisions.</p>
+      <p class="subtitle zh-only">我们不代理项目、不拿返佣、不做中介。<br>专注深度尽调、风险拆解、长期陪伴，帮助您在信息不对称中做出更明智的全球身份配置决策。</p>
+      <p class="subtitle en-only">We do not represent projects, take commissions, or act as intermediaries.<br>Focused on in-depth due diligence, risk dissection, and long-term companionship to help you make informed global identity decisions in an asymmetric information landscape.</p>
       
-      <div style="margin-top: 2.5rem;">
-        <a href="#about" class="btn-primary zh-only">了解我们的独立立场</a>
-        <a href="#about" class="btn-primary en-only">Understand Our Independent Position</a>
-        <a href="#contact" class="btn-primary zh-only" style="margin-left:1.5rem;background:var(--secondary);color:white;">开始咨询</a>
-        <a href="#contact" class="btn-primary en-only" style="margin-left:1.5rem;background:var(--secondary);color:white;">Start Consultation</a>
+      <div class="btn-group">
+        <a href="#about" class="btn btn-white zh-only">了解我们的独立立场</a>
+        <a href="#about" class="btn btn-white en-only">Understand Our Independent Position</a>
+        <a href="#contact" class="btn btn-blue zh-only">开始咨询</a>
+        <a href="#contact" class="btn btn-blue en-only">Start Consultation</a>
       </div>
     </div>
   </section>
 
   <section id="about">
-    <h2 class="zh-only">我们的立场与边界</h2>
-    <h2 class="en-only">Our Position & Boundaries</h2>
-    
-    <div class="boundary-box">
-      <p class="zh-only"><strong>核心承诺：</strong>我们不代理任何移民项目、不收取任何返佣、不经手客户资金、不代提交申请、不提供法律意见、不承诺任何成功率或结果。</p>
-      <p class="en-only"><strong>Core Commitment:</strong> We do not represent any immigration programs, accept no commissions, handle no client funds, submit no applications, provide no legal opinions, and make no guarantees of success or outcomes.</p>
+    <div class="highlight-box">
+      <h2 style="color:white;" class="zh-only">我们的绝对边界</h2>
+      <h2 style="color:white;" class="en-only">Our Absolute Boundaries</h2>
+      <p style="max-width: 900px; margin: 0 auto 2rem; font-size: 1.25rem; line-height: 2;" class="zh-only">
+        <strong>“我们不代理，所以我们可以说真话。”</strong><br>
+        不经手资金 · 不代提交申请 · 不与项目方/中介存在任何利益关联。<br>收入**仅**来自您的咨询费。
+      </p>
+      <p style="max-width: 900px; margin: 0 auto 2rem; font-size: 1.15rem; line-height: 2;" class="en-only">
+        "We don't represent, so we can tell the truth."<br>
+        No fund handling · No application submission · No affiliation with sponsors or agents.<br>Revenue comes solely from your consulting fee.
+      </p>
     </div>
     
     <div class="grid-3">
       <div class="card">
-        <h3 class="zh-only">完全独立性</h3>
-        <h3 class="en-only">Complete Independence</h3>
-        <p class="zh-only">我们与所有项目方、基金管理人、开发商、移民中介零利益关联。<br>收入**仅**来自客户咨询费。</p>
-        <p class="en-only">Zero affiliation, commission or equity ties with any project sponsor, fund manager, developer or agent.<br>Revenue comes solely from client consulting fees.</p>
+        <h3 class="zh-only">深度专业</h3>
+        <h3 class="en-only">Deep Expertise</h3>
+        <p class="zh-only">多年项目方销售与培训经验，最懂哪里容易被割、如何包装溢价。</p>
+        <p class="en-only">Years of project-side sales & training experience. We know exactly where and how the information asymmetry is exploited.</p>
       </div>
       <div class="card">
-        <h3 class="zh-only">风险导向专业</h3>
-        <h3 class="en-only">Risk-Oriented Expertise</h3>
-        <p class="zh-only">专注政策突变、隐性费用、退出困难、合规隐患、估值水分等真实风险拆解。</p>
-        <p class="en-only">Specialized in dissecting real risks: policy volatility, hidden fees, exit barriers, compliance vulnerabilities, valuation inflation.</p>
+        <h3 class="zh-only">客户视角</h3>
+        <h3 class="en-only">Client-Centric</h3>
+        <p class="zh-only">始终站在客户利益最大化一侧，对冲中介机构的天然偏差。</p>
+        <p class="en-only">Always on the client's side, counterbalancing the inherent bias of traditional agencies.</p>
       </div>
       <div class="card">
-        <h3 class="zh-only">长期价值陪伴</h3>
-        <h3 class="en-only">Long-term Value Partnership</h3>
-        <p class="zh-only">从初期避坑，到中期方案优化，再到后期家族多代规划与持续监控。</p>
-        <p class="en-only">From early-stage pit avoidance, mid-stage optimization, to long-term family multi-generation planning and continuous monitoring.</p>
+        <h3 class="zh-only">可持续陪伴</h3>
+        <h3 class="en-only">Sustainable Partnership</h3>
+        <p class="zh-only">从避坑起步，到方案优化，再到家族多代规划与年度监控。</p>
+        <p class="en-only">From pit avoidance to scheme optimization, then long-term family planning and annual monitoring.</p>
       </div>
     </div>
   </section>
 
-  <section id="services">
+  <section id="services" style="background:#fff;">
     <h2 class="zh-only">分层咨询服务体系</h2>
-    <h2 class="en-only">Tiered Advisory Service System</h2>
+    <h2 class="en-only">Tiered Advisory Services</h2>
     
-    <p class="zh-only" style="text-align:center;max-width:900px;margin:0 auto 3rem;font-size:1.2rem;color:var(--gray);">创业初期，我们设计了从低门槛试水到深度长期陪伴的完整路径，每一步都能看到明确价值再决定是否继续。</p>
-    <p class="en-only" style="text-align:center;max-width:900px;margin:0 auto 3rem;font-size:1.2rem;color:var(--gray);">Designed for early-stage clients: a complete path from low-barrier trial to deep long-term companionship, with clear value at every step.</p>
+    <p class="zh-only" style="text-align:center; max-width:900px; margin:0 auto 4rem; font-size:1.25rem; color:var(--gray);">创业初期，我们设计了从低门槛试水到深度长期陪伴的完整路径，每一步都有明确输出，让信任自然积累。</p>
+    <p class="en-only" style="text-align:center; max-width:900px; margin:0 auto 4rem; font-size:1.25rem; color:var(--gray);">Designed for early-stage clients: a full path from low-barrier trial to deep long-term companionship, with clear output at every step for natural trust building.</p>
     
     <div class="grid-4">
       <div class="card">
         <h3 class="zh-only">1. 初步风险扫描</h3>
         <h3 class="en-only">1. Initial Risk Scan</h3>
         <div class="price-tag">999 元</div>
-        <p class="zh-only">30~45分钟深度沟通 + 即时红旗判断<br>帮您快速排除明显不靠谱的项目<br>全额抵扣后续任何服务</p>
-        <p class="en-only">30~45 min deep discussion + instant red flag check<br>Quickly rule out obviously problematic programs<br>Fully creditable to any further service</p>
+        <p class="zh-only">30~45分钟专家对话<br>快速排除明显不靠谱项目<br>全额抵扣后续服务</p>
+        <p class="en-only">30~45 min expert discussion<br>Quickly rule out obvious problematic programs<br>Fully creditable</p>
       </div>
       
       <div class="card">
-        <h3 class="zh-only">2. 单项目深度尽调报告</h3>
-        <h3 class="en-only">2. Single Project In-depth Report</h3>
-        <div class="price-tag">2.8 ~ 4.8 万</div>
-        <p class="zh-only">12~20页专业报告<br>真实成本拆解 + 条款黑箱分析<br>主要风险清单 + 退出概率评估</p>
-        <p class="en-only">12~20 page professional report<br>Real cost breakdown + hidden clause analysis<br>Major risk checklist + exit probability evaluation</p>
+        <h3 class="zh-only">2. 单项目深度尽调</h3>
+        <h3 class="en-only">2. Single Project In-depth Due Diligence</h3>
+        <div class="price-tag">2.8万 ~ 4.8万</div>
+        <p class="zh-only">12~20页报告<br>真实成本拆解 + 条款黑箱分析<br>风险评分 + 退出可能性评估</p>
+        <p class="en-only">12~20 page report<br>Real cost breakdown + hidden clause analysis<br>Risk scoring + exit probability</p>
       </div>
       
       <div class="card">
-        <h3 class="zh-only">3. 多方案对比 + 谈判指导</h3>
-        <h3 class="en-only">3. Multi-Scheme Comparison + Negotiation Guidance</h3>
-        <div class="price-tag">8.8 ~ 14.8 万</div>
-        <p class="zh-only">3~8个同类项目横向对比<br>优先级排序 + 谈判话术/邮件模板<br>预计节省金额与风险降低评估</p>
-        <p class="en-only">3~8 comparable programs side-by-side<br>Priority ranking + negotiation scripts/templates<br>Estimated savings & risk reduction assessment</p>
+        <h3 class="zh-only">3. 多方案对比与谈判指导</h3>
+        <h3 class="en-only">3. Multi-Scheme Comparison & Negotiation</h3>
+        <div class="price-tag">8.8万 ~ 14.8万</div>
+        <p class="zh-only">3~8个项目横向对比<br>优先级排序 + 谈判话术模板<br>预计节省金额评估</p>
+        <p class="en-only">3~8 programs side-by-side<br>Priority ranking + negotiation templates<br>Estimated savings assessment</p>
       </div>
       
       <div class="card">
-        <h3 class="zh-only">4. 年度监控订阅（核心续费点）</h3>
-        <h3 class="en-only">4. Annual Monitoring Subscription (Core Recurring)</h3>
-        <div class="price-tag">3.8 ~ 6.8 万 / 年</div>
-        <p class="zh-only">政策/项目重大变化即时预警<br>持续进展跟踪 + 每年2~4次免费评估<br>适合已决策或正在执行的家庭</p>
-        <p class="en-only">Real-time alerts on major policy/project changes<br>Ongoing tracking + 2~4 free reassessments/year<br>Ideal for families who have decided or are executing</p>
+        <h3 class="zh-only">4. 年度监控订阅</h3>
+        <h3 class="en-only">4. Annual Monitoring Subscription</h3>
+        <div class="price-tag">3.8万 ~ 6.8万 / 年</div>
+        <p class="zh-only">政策/项目变化即时预警<br>持续跟踪 + 2~4次免费评估<br>适合已决策家庭</p>
+        <p class="en-only">Real-time alerts on changes<br>Ongoing tracking + 2~4 free reassessments/year<br>Ideal for executing families</p>
       </div>
     </div>
   </section>
 
-  <section id="why-us">
+  <section id="why-us" style="background:#f8f9fa;">
     <h2 class="zh-only">为什么在创业初期选择我们？</h2>
-    <h2 class="en-only">Why Choose Us During Early Startup Phase?</h2>
+    <h2 class="en-only">Why Choose Us in Early Stage?</h2>
     
     <div class="grid-3">
       <div class="card">
-        <h3 class="zh-only">我们最懂“坑”在哪里</h3>
-        <h3 class="en-only">We Know the Pitfalls Best</h3>
-        <p class="zh-only">多年项目方销售、培训、成交经验<br>最清楚中介/项目方如何包装、如何割韭菜</p>
-        <p class="en-only">Years of project-side sales, training & closing experience<br>We know exactly how agents and sponsors package and exploit information gaps</p>
+        <h3 class="zh-only">最懂“割韭菜”套路</h3>
+        <h3 class="en-only">Deepest Understanding of Traps</h3>
+        <p class="zh-only">我们做过多年项目方销售与培训，最清楚中介如何包装、如何隐瞒水分。</p>
+        <p class="en-only">Years of project-side sales & training. We know exactly how agencies package and hide markups.</p>
       </div>
-      
       <div class="card">
-        <h3 class="zh-only">低风险渐进式信任建立</h3>
-        <h3 class="en-only">Low-Risk Progressive Trust Building</h3>
-        <p class="zh-only">从999元试水 → 看到真实价值 → 再决定加码<br>每一步都有明确输出，不存在“买了就消失”</p>
-        <p class="en-only">Start with 999 RMB trial → See real value → Decide to go deeper<br>Every step has tangible output, no "pay and disappear"</p>
+        <h3 class="zh-only">低风险信任建立</h3>
+        <h3 class="en-only">Low-Risk Trust Building</h3>
+        <p class="zh-only">999元起步，几乎无决策成本。<br>每一步都有可见输出，信任自然积累。</p>
+        <p class="en-only">Start at 999 RMB — almost zero decision risk.<br>Clear output at every step for natural trust.</p>
       </div>
-      
       <div class="card">
-        <h3 class="zh-only">长期可持续陪伴</h3>
-        <h3 class="en-only">Long-term Sustainable Partnership</h3>
-        <p class="zh-only">不是一次性生意。<br>信任积累后，可升级为家族多代移民规划顾问</p>
-        <p class="en-only">Not a one-off transaction.<br>After trust is built, upgrade to multi-generation family immigration advisory</p>
+        <h3 class="zh-only">可持续长期价值</h3>
+        <h3 class="en-only">Sustainable Long-term Value</h3>
+        <p class="zh-only">不是一次性生意。<br>信任后可升级为家族多代规划顾问。</p>
+        <p class="en-only">Not a one-off transaction.<br>Upgrade to family multi-generation advisory after trust is built.</p>
       </div>
     </div>
   </section>
@@ -359,65 +391,59 @@
     
     <div class="grid-3">
       <div class="card">
-        <h3 class="zh-only">葡萄牙黄金签证（基金类）</h3>
-        <h3 class="en-only">Portugal Golden Visa (Fund Route)</h3>
-        <p class="zh-only">基金质量参差、管理费黑箱、退出条款坑</p>
-        <p class="en-only">Variable fund quality, hidden management fees, exit clause pitfalls</p>
+        <h3 class="zh-only">葡萄牙黄金签证（基金）</h3>
+        <h3 class="en-only">Portugal Golden Visa (Fund)</h3>
+        <p class="zh-only">管理费黑箱 · 退出条款陷阱 · 基金质量参差</p>
+        <p class="en-only">Hidden management fees · Exit clause traps · Variable fund quality</p>
       </div>
       <div class="card">
-        <h3 class="zh-only">土耳其公民投资（房产/基金）</h3>
-        <h3 class="en-only">Turkey Citizenship (Property/Fund)</h3>
-        <p class="zh-only">估值虚高、建筑质量、3年强制持有风险</p>
-        <p class="en-only">Inflated valuations, construction quality, 3-year holding risks</p>
+        <h3 class="zh-only">土耳其公民投资</h3>
+        <h3 class="en-only">Turkey Citizenship Investment</h3>
+        <p class="zh-only">估值虚高 · 建筑质量 · 3年强制持有风险</p>
+        <p class="en-only">Inflated valuations · Construction quality · 3-year holding risks</p>
       </div>
       <div class="card">
-        <h3 class="zh-only">希腊黄金签证（房产）</h3>
-        <h3 class="en-only">Greece Golden Visa (Property)</h3>
-        <p class="zh-only">区域门槛暴涨、Airbnb禁租、流动性差</p>
-        <p class="en-only">Regional threshold surge, Airbnb rental ban, low liquidity</p>
+        <h3 class="zh-only">希腊/巴拿马房产类</h3>
+        <h3 class="en-only">Greece / Panama Property</h3>
+        <p class="zh-only">区域门槛暴涨 · 短租禁令 · 流动性与税费</p>
+        <p class="en-only">Regional threshold surge · Short-term rental ban · Liquidity & tax issues</p>
       </div>
       <div class="card">
-        <h3 class="zh-only">巴拿马友好国家签证（购房）</h3>
-        <h3 class="en-only">Panama Friendly Nations Visa (Property)</h3>
-        <p class="zh-only">房产真实价值、法律合规、税务影响</p>
-        <p class="en-only">Real property value, legal compliance, tax implications</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">美国EB-5投资移民</h3>
-        <h3 class="en-only">US EB-5 Investment Immigration</h3>
-        <p class="zh-only">区域中心失败率、资金安全、I-829风险</p>
-        <p class="en-only">Regional center failure rate, fund safety, I-829 risks</p>
+        <h3 class="zh-only">美国EB-5投资</h3>
+        <h3 class="en-only">US EB-5 Investment</h3>
+        <p class="zh-only">区域中心违约 · I-829就业计算 · 资金安全</p>
+        <p class="en-only">Regional center default · I-829 job creation · Fund safety</p>
       </div>
       <div class="card">
         <h3 class="zh-only">美国EB-1A杰出人才</h3>
         <h3 class="en-only">US EB-1A Extraordinary Ability</h3>
-        <p class="zh-only">证据链完整性、RFE概率、行业标准变化</p>
-        <p class="en-only">Evidence chain completeness, RFE probability, industry standard changes</p>
+        <p class="zh-only">证据链真实性 · RFE高发点 · 行业标准变化</p>
+        <p class="en-only">Evidence authenticity · RFE high-risk points · Industry standard shifts</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2 class="zh-only">联系我们 · 开始您的独立之旅</h2>
-    <h2 class="en-only">Contact Us · Begin Your Independent Journey</h2>
+    <h2 class="zh-only">联系我们 · 开始您的独立评估</h2>
+    <h2 class="en-only">Contact Us · Begin Your Independent Assessment</h2>
     
     <div class="contact-info">
-      <p class="zh-only">我们理解移民决策的复杂与谨慎。<br>第一步无需付费压力，只需简单沟通，了解我们是否能真正帮到您。</p>
-      <p class="en-only">We understand the complexity and caution in immigration decisions.<br>The first step requires no payment pressure — just a conversation to see if we can truly assist you.</p>
+      <p class="zh-only">我们理解移民决策的沉重与谨慎。<br>第一步无需付费，只需简单沟通，确认我们是否真正匹配您的需求。</p>
+      <p class="en-only">We understand the weight and caution of immigration decisions.<br>The first step requires no payment — just a conversation to see if we are the right fit.</p>
       
-      <div style="margin: 3rem 0;">
-        <p style="font-size:1.5rem; font-weight:700; color:var(--secondary);">
+      <div style="margin: 3.5rem 0;">
+        <p style="font-size:1.6rem; font-weight:700; color:var(--secondary);">
           contact@globalpioneer.consulting
         </p>
       </div>
     </div>
     
     <div style="text-align:center;">
-      <a href="mailto:contact@globalpioneer.consulting?subject=咨询意向&body=您好，我对独立移民风险咨询感兴趣。%0A%0A姓名：%0A联系方式：%0A主要关注项目：%0A简单需求描述：%0A%0A谢谢！" class="btn-primary zh-only">通过邮件联系</a>
-      <a href="mailto:contact@globalpioneer.consulting?subject=Consultation Interest&body=Hello, I am interested in independent immigration risk consulting.%0A%0AName: %0AContact: %0AMain programs of interest: %0ABrief needs description: %0A%0AThank you!" class="btn-primary en-only">Contact via Email</a>
+      <a href="mailto:contact@globalpioneer.consulting?subject=咨询意向" class="btn btn-primary zh-only">通过邮件联系</a>
+      <a href="mailto:contact@globalpioneer.consulting?subject=Consultation Interest" class="btn btn-primary en-only">Contact via Email</a>
       
-      <p style="margin-top:2.5rem;" class="zh-only">或添加微信：GlobalPioneer（国内客户首选，响应更快）</p>
-      <p style="margin-top:2.5rem;" class="en-only">Or add WeChat: GlobalPioneer (preferred by domestic clients, faster response)</p>
+      <p style="margin-top:2.5rem; font-size:1.2rem;" class="zh-only">或添加微信：GlobalPioneer（响应更快）</p>
+      <p style="margin-top:2.5rem; font-size:1.2rem;" class="en-only">Or add WeChat: GlobalPioneer (faster response)</p>
     </div>
   </section>
 
