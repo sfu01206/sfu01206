@@ -27,7 +27,7 @@
       line-height: 1.8;
     }
     
-    /* 语言切换核心 */
+    /* 语言切换核心逻辑 */
     .lang-en .zh-only { display: none !important; }
     .lang-zh .en-only { display: none !important; }
     
@@ -101,16 +101,30 @@
     }
     nav a:hover { color: var(--secondary); }
     
+    /* 语言切换器样式优化 */
+    .lang-switcher-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: 1rem;
+      border-left: 1px solid var(--border);
+      padding-left: 1.5rem;
+    }
+
     .lang-switch {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
       transition: all 0.3s;
+      color: var(--gray);
     }
-    .lang-switch:hover { background: rgba(10,102,194,0.08); }
-    .lang-switch.active { color: var(--secondary); background: rgba(10,102,194,0.12); }
+    .lang-switch:hover { color: var(--secondary); background: rgba(10,102,194,0.05); }
+    .lang-switch.active { 
+      color: var(--secondary); 
+      background: rgba(10,102,194,0.1); 
+    }
     
     /* Hero */
     #home {
@@ -156,6 +170,9 @@
       text-decoration: none;
       transition: all 0.35s;
       font-size: 1.1rem;
+      cursor: pointer;
+      display: inline-block;
+      border: none;
     }
     .btn-outline {
       background: transparent;
@@ -170,6 +187,11 @@
     .btn:hover {
       transform: translateY(-4px);
       box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: white;
     }
     
     section {
@@ -188,7 +210,7 @@
     
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2.5rem;
     }
     
@@ -267,14 +289,16 @@
       
       <ul>
         <li><a href="#home" class="zh-only">首页</a><a href="#home" class="en-only">Home</a></li>
-        <li><a href="#about" class="zh-only">立场与原则</a><a href="#about" class="en-only">Position & Principles</a></li>
+        <li><a href="#about" class="zh-only">立场与原则</a><a href="#about" class="en-only">Principles</a></li>
         <li><a href="#services" class="zh-only">服务体系</a><a href="#services" class="en-only">Services</a></li>
-        <li><a href="#why-us" class="zh-only">为什么选择我们</a><a href="#why-us" class="en-only">Why Choose Us</a></li>
-        <li><a href="#projects" class="zh-only">专注项目</a><a href="#projects" class="en-only">Focus Projects</a></li>
+        <li><a href="#projects" class="zh-only">专注项目</a><a href="#projects" class="en-only">Projects</a></li>
         <li><a href="#contact" class="zh-only">联系咨询</a><a href="#contact" class="en-only">Contact</a></li>
         <li>
-          <span class="lang-switch active zh-only" onclick="document.body.classList.remove('lang-en');document.body.classList.add('lang-zh')">中文</span>
-          <span class="lang-switch en-only" onclick="document.body.classList.remove('lang-zh');document.body.classList.add('lang-en')">English</span>
+          <div class="lang-switcher-nav">
+            <span id="btn-zh" class="lang-switch active" onclick="switchLang('zh')">中文</span>
+            <span style="color: #E5E7EB;">|</span>
+            <span id="btn-en" class="lang-switch" onclick="switchLang('en')">EN</span>
+          </div>
         </li>
       </ul>
     </nav>
@@ -283,14 +307,14 @@
   <section id="home">
     <div class="hero-content">
       <h1 class="zh-only">独立第三方<br>移民投资风险顾问</h1>
-      <h1 class="en-only">Independent Third-Party<br>Immigration Investment Risk Advisory</h1>
+      <h1 class="en-only">Independent Third-Party<br>Investment Risk Advisory</h1>
       
       <p class="subtitle zh-only">我们不代理项目、不收取返佣、不做中介。<br>专注深度尽调、风险拆解、长期陪伴，帮助您在信息不对称的市场中做出更明智的全球身份与投资决策。</p>
-      <p class="subtitle en-only">We do not represent programs, accept commissions, or act as intermediaries.<br>Focused on rigorous due diligence, risk dissection, and long-term support to empower informed global identity and investment decisions.</p>
+      <p class="subtitle en-only">We do not represent programs or accept commissions.<br>Focused on rigorous due diligence and risk dissection to empower informed global identity decisions.</p>
       
       <div class="btn-group">
         <a href="#about" class="btn btn-outline zh-only">了解我们的立场</a>
-        <a href="#about" class="btn btn-outline en-only">Understand Our Position</a>
+        <a href="#about" class="btn btn-outline en-only">Our Position</a>
         <a href="#contact" class="btn btn-solid zh-only">联系咨询</a>
         <a href="#contact" class="btn btn-solid en-only">Get in Touch</a>
       </div>
@@ -307,28 +331,28 @@
       </p>
       <p style="max-width:900px; margin:0 auto; font-size:1.15rem; line-height:2;" class="en-only">
         "We do not represent projects, so we can speak the truth."<br>
-        No fund handling · No application submission · No affiliation with sponsors or agents.<br>Revenue source: Your consulting fee only.
+        No fund handling · No application submission · No affiliation with sponsors.<br>Revenue: Your consulting fee only.
       </p>
     </div>
     
     <div class="grid-3">
       <div class="card">
         <h3 class="zh-only">深度专业能力</h3>
-        <h3 class="en-only">Deep Professional Expertise</h3>
+        <h3 class="en-only">Deep Expertise</h3>
         <p class="zh-only">多年项目方销售、培训、成交经验，最懂信息差套路、包装水分、隐性条款。</p>
-        <p class="en-only">Years of project-side sales, training and closing experience. Deep understanding of information asymmetry tactics, packaging, and hidden terms.</p>
+        <p class="en-only">Years of project-side experience. Deep understanding of information asymmetry and hidden terms.</p>
       </div>
       <div class="card">
         <h3 class="zh-only">纯粹客户视角</h3>
-        <h3 class="en-only">Pure Client Perspective</h3>
+        <h3 class="en-only">Client Perspective</h3>
         <p class="zh-only">始终对冲中介机构的利益偏差，确保您的每一笔投资决策都有客观依据。</p>
-        <p class="en-only">Always counterbalancing agency bias to ensure every investment decision is based on objective grounds.</p>
+        <p class="en-only">Always counterbalancing agency bias to ensure every decision is based on objective grounds.</p>
       </div>
       <div class="card">
         <h3 class="zh-only">可持续长期陪伴</h3>
-        <h3 class="en-only">Sustainable Long-term Partnership</h3>
+        <h3 class="en-only">Long-term Partnership</h3>
         <p class="zh-only">从初期避坑，到中期优化，再到家族多代规划与年度监控，形成完整闭环。</p>
-        <p class="en-only">From early pit avoidance to mid-stage optimization, then long-term family planning and annual monitoring — a complete closed loop.</p>
+        <p class="en-only">From early pit avoidance to long-term family planning — a complete closed loop.</p>
       </div>
     </div>
   </section>
@@ -336,142 +360,101 @@
   <section id="services">
     <h2 class="zh-only">分层咨询服务体系</h2>
     <h2 class="en-only">Tiered Advisory Services</h2>
-    
-    <p class="zh-only" style="text-align:center;max-width:1000px;margin:0 auto 4rem;font-size:1.25rem;color:var(--gray);">我们为高净值家庭设计了渐进式服务路径，从低门槛试水到深度长期陪伴，每一步都有明确价值输出，信任自然积累。</p>
-    <p class="en-only" style="text-align:center;max-width:1000px;margin:0 auto 4rem;font-size:1.25rem;color:var(--gray);">We have designed a progressive service path for high-net-worth families: from low-barrier trial to deep long-term companionship, with clear value at every step for natural trust building.</p>
-    
     <div class="grid-3">
       <div class="card">
         <h3 class="zh-only">1. 初步风险扫描</h3>
         <h3 class="en-only">1. Initial Risk Scan</h3>
         <div class="price-tag">999 元</div>
-        <p class="zh-only">30~45分钟专家对话<br>快速排除明显不靠谱项目<br>全额抵扣后续服务</p>
-        <p class="en-only">30~45 min expert discussion<br>Quickly rule out obviously problematic programs<br>Fully creditable</p>
+        <p class="zh-only">30~45分钟专家对话<br>快速排除明显不靠谱项目</p>
+        <p class="en-only">30~45 min expert discussion<br>Quickly rule out problematic programs</p>
       </div>
       <div class="card">
         <h3 class="zh-only">2. 单项目深度尽调</h3>
-        <h3 class="en-only">2. Single Project In-depth Due Diligence</h3>
+        <h3 class="en-only">2. Single Project Due Diligence</h3>
         <div class="price-tag">2.8万 ~ 4.8万</div>
-        <p class="zh-only">12~20页专业报告<br>真实成本拆解 + 条款黑箱分析<br>风险评分 + 退出可能性评估</p>
-        <p class="en-only">12~20 page professional report<br>Real cost breakdown + hidden clause analysis<br>Risk scoring + exit probability</p>
+        <p class="zh-only">12~20页专业报告<br>真实成本拆解 + 条款黑箱分析</p>
+        <p class="en-only">12~20 page report<br>Real cost breakdown + hidden clause analysis</p>
       </div>
       <div class="card">
-        <h3 class="zh-only">3. 多方案对比 + 谈判指导</h3>
-        <h3 class="en-only">3. Multi-Scheme Comparison + Negotiation Guidance</h3>
+        <h3 class="zh-only">3. 多方案对比 + 谈判</h3>
+        <h3 class="en-only">3. Comparison + Negotiation</h3>
         <div class="price-tag">8.8万 ~ 14.8万</div>
-        <p class="zh-only">3~8个项目横向对比<br>优先级排序 + 谈判话术/邮件模板<br>预计节省金额评估</p>
-        <p class="en-only">3~8 programs side-by-side<br>Priority ranking + negotiation templates<br>Estimated savings assessment</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">4. 年度监控订阅</h3>
-        <h3 class="en-only">4. Annual Monitoring Subscription</h3>
-        <div class="price-tag">3.8万 ~ 6.8万 / 年</div>
-        <p class="zh-only">政策/项目变化即时预警<br>持续跟踪 + 2~4次免费评估<br>适合已决策家庭</p>
-        <p class="en-only">Real-time alerts on changes<br>Ongoing tracking + 2~4 free reassessments/year<br>Ideal for executing families</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="why-us" style="background:#f9fafb;">
-    <h2 class="zh-only">为什么选择我们？</h2>
-    <h2 class="en-only">Why Choose Us?</h2>
-    
-    <div class="grid-3">
-      <div class="card">
-        <h3 class="zh-only">最懂信息差套路</h3>
-        <h3 class="en-only">Deepest Understanding of Asymmetry</h3>
-        <p class="zh-only">多年项目方一线经验，最清楚中介如何包装、隐瞒水分、制造恐慌。</p>
-        <p class="en-only">Frontline project-side experience. We know exactly how agencies and sponsors package, conceal markups, and create fear.</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">低风险信任建立</h3>
-        <h3 class="en-only">Low-Risk Trust Building</h3>
-        <p class="zh-only">从极低门槛起步，每一步都有可见价值输出，信任自然积累。</p>
-        <p class="en-only">Start at minimal barrier, clear value at every step — trust builds naturally.</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">可持续长期价值</h3>
-        <h3 class="en-only">Sustainable Long-term Value</h3>
-        <p class="zh-only">不是一次性交易。信任后可升级为家族多代规划顾问。</p>
-        <p class="en-only">Not a one-off transaction. Upgrade to family multi-generation advisory after trust is built.</p>
+        <p class="zh-only">3~8个项目横向对比<br>优先级排序 + 谈判话术指导</p>
+        <p class="en-only">3~8 programs side-by-side<br>Priority ranking + negotiation support</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
     <h2 class="zh-only">当前核心专注项目</h2>
-    <h2 class="en-only">Current Core Focus Projects</h2>
-    
+    <h2 class="en-only">Core Focus Projects</h2>
     <div class="grid-3">
       <div class="card">
         <h3 class="zh-only">葡萄牙黄金签证（基金）</h3>
         <h3 class="en-only">Portugal Golden Visa (Fund)</h3>
-        <p class="zh-only">基金质量 · 管理费黑箱 · 退出条款 · 流动性风险</p>
-        <p class="en-only">Fund quality · Hidden management fees · Exit clauses · Liquidity risks</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">土耳其公民投资</h3>
-        <h3 class="en-only">Turkey Citizenship Investment</h3>
-        <p class="zh-only">估值水分 · 建筑质量 · 3年强制持有 · 汇率风险</p>
-        <p class="en-only">Valuation inflation · Construction quality · 3-year holding · Currency risk</p>
-      </div>
-      <div class="card">
-        <h3 class="zh-only">希腊/巴拿马房产类</h3>
-        <h3 class="en-only">Greece / Panama Property</h3>
-        <p class="zh-only">区域门槛暴涨 · 短租禁令 · 流动性 · 税务陷阱</p>
-        <p class="en-only">Regional threshold surge · Short-term rental ban · Liquidity · Tax traps</p>
+        <p class="zh-only">基金质量 · 管理费黑箱 · 退出条款</p>
+        <p class="en-only">Fund quality · Hidden fees · Exit clauses</p>
       </div>
       <div class="card">
         <h3 class="zh-only">美国EB-5投资</h3>
         <h3 class="en-only">US EB-5 Investment</h3>
-        <p class="zh-only">区域中心违约 · 资金安全 · I-829就业计算</p>
-        <p class="en-only">Regional center default · Fund safety · I-829 job creation</p>
+        <p class="zh-only">区域中心违约 · 资金安全 · 就业计算</p>
+        <p class="en-only">Regional center default · Fund safety</p>
       </div>
       <div class="card">
-        <h3 class="zh-only">美国EB-1A杰出人才</h3>
-        <h3 class="en-only">US EB-1A Extraordinary Ability</h3>
-        <p class="zh-only">证据链真实性 · RFE高发 · 行业标准变化</p>
-        <p class="en-only">Evidence authenticity · High RFE risk · Industry standard shifts</p>
+        <h3 class="zh-only">希腊/巴拿马房产类</h3>
+        <h3 class="en-only">Greece / Panama Property</h3>
+        <p class="zh-only">区域门槛 · 短租禁令 · 流动性</p>
+        <p class="en-only">Regional thresholds · Rental bans · Liquidity</p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2 class="zh-only">联系我们 · 开始您的独立之旅</h2>
-    <h2 class="en-only">Contact Us · Begin Your Independent Journey</h2>
-    
-    <div class="contact-info">
-      <p class="zh-only">我们理解高净值家庭在全球身份配置中的谨慎与复杂。<br>欢迎先通过邮件或微信进行初步沟通，确认我们是否真正匹配您的需求。</p>
-      <p class="en-only">We understand the caution and complexity high-net-worth families face in global identity configuration.<br>Feel free to start with a simple conversation via email or WeChat to see if we are the right fit.</p>
-      
-      <div style="margin: 3.5rem 0;">
-        <p style="font-size:1.6rem; font-weight:700; color:var(--secondary);">
-          contact@globalpioneer.consulting
-        </p>
-      </div>
-    </div>
-    
+    <h2 class="zh-only">开始您的独立之旅</h2>
+    <h2 class="en-only">Begin Your Journey</h2>
     <div style="text-align:center;">
-      <a href="mailto:contact@globalpioneer.consulting?subject=咨询意向" class="btn btn-primary zh-only">通过邮件联系</a>
-      <a href="mailto:contact@globalpioneer.consulting?subject=Consultation Interest" class="btn btn-primary en-only">Contact via Email</a>
-      
-      <p style="margin-top:2.5rem; font-size:1.2rem;" class="zh-only">或添加微信：GlobalPioneer（国内客户首选，响应更快）</p>
-      <p style="margin-top:2.5rem; font-size:1.2rem;" class="en-only">Or add WeChat: GlobalPioneer (preferred by domestic clients, faster response)</p>
+      <p style="font-size:1.6rem; font-weight:700; color:var(--secondary); margin-bottom: 2rem;">
+        contact@globalpioneer.consulting
+      </p>
+      <a href="mailto:contact@globalpioneer.consulting" class="btn btn-primary zh-only">邮件联系</a>
+      <a href="mailto:contact@globalpioneer.consulting" class="btn btn-primary en-only">Email Us</a>
+      <p style="margin-top:2.5rem; font-size:1.2rem;">WeChat: GlobalPioneer</p>
     </div>
   </section>
 
   <footer>
-    <p class="zh-only">© 2025 领锋国际咨询 · 独立顾问 · 透明定价 · 只为客户说话</p>
-    <p class="en-only">© 2025 Global Pioneer Consulting · Independent Advisory · Transparent Pricing · Client-First Only</p>
+    <p class="zh-only">© 2025 领锋国际咨询 · 独立顾问 · 透明定价</p>
+    <p class="en-only">© 2025 Global Pioneer Consulting · Independent · Transparent</p>
   </footer>
 
   <script>
+    // 核心切换逻辑
+    function switchLang(lang) {
+      const body = document.body;
+      const btnZh = document.getElementById('btn-zh');
+      const btnEn = document.getElementById('btn-en');
+
+      if (lang === 'zh') {
+        body.classList.remove('lang-en');
+        body.classList.add('lang-zh');
+        btnZh.classList.add('active');
+        btnEn.classList.remove('active');
+      } else {
+        body.classList.remove('lang-zh');
+        body.classList.add('lang-en');
+        btnEn.classList.add('active');
+        btnZh.classList.remove('active');
+      }
+    }
+
     // 平滑滚动
-    document.querySelectorAll('a[href^="#"], .logo-container').forEach(el => {
+    document.querySelectorAll('a[href^="#"]').forEach(el => {
       el.addEventListener('click', function(e) {
-        if (this.tagName === 'A' && this.getAttribute('href').startsWith('#')) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
         }
       });
     });
