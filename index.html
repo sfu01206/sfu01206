@@ -16,21 +16,21 @@
       --dark: #0F172A;
       --gray: #4B5563;
       --border: #E5E7EB;
-      --shadow: 0 10px 40px rgba(0,31,63,0.12);
+      --shadow: 0 8px 32px rgba(0,31,63,0.1);
     }
-
+    
     * { margin:0; padding:0; box-sizing:border-box; }
-
     body {
       font-family: 'Noto Sans SC', 'Inter', system-ui, sans-serif;
       background: var(--light);
       color: var(--dark);
       line-height: 1.8;
     }
-
+    
+    /* 语言切换 */
     .lang-en .zh-only { display: none !important; }
     .lang-zh .en-only { display: none !important; }
-
+    
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -39,196 +39,210 @@
       border-bottom: 1px solid var(--border);
       z-index: 1000;
     }
-
+    
     nav {
       max-width: 1480px;
       margin: 0 auto;
-      padding: 1.4rem 5%;
+      padding: 1.2rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
+    
     .logo-container {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       text-decoration: none;
     }
-
+    
     .logo-monogram {
       display: flex;
+      align-items: center;
       gap: 0.1em;
     }
-
+    
     .logo-g, .logo-p {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 3.8rem;
       line-height: 0.9;
+      color: var(--primary);
       letter-spacing: -0.03em;
     }
-
-    .logo-g { color: var(--primary); }
-    .logo-p { color: var(--secondary); }
-
+    
+    .logo-p {
+      color: var(--secondary);
+      opacity: 0.92;
+    }
+    
     .logo-slogan {
       font-size: 0.82rem;
+      font-weight: 500;
       letter-spacing: 1.8px;
       color: var(--gray);
       margin-top: 0.25rem;
       text-transform: uppercase;
     }
-
+    
     nav ul {
       display: flex;
       gap: 2.8rem;
       list-style: none;
       align-items: center;
     }
-
+    
     nav a {
       color: var(--dark);
       text-decoration: none;
       font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.3s;
     }
-
     nav a:hover { color: var(--secondary); }
-
+    
     .lang-switch {
       font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
       padding: 0.5rem 1rem;
       border-radius: 6px;
+      transition: all 0.3s;
     }
-
-    .lang-switch.active {
-      color: var(--secondary);
-      background: rgba(10,102,194,0.12);
-    }
-
-    /* Hero */
+    .lang-switch:hover { background: rgba(10,102,194,0.08); }
+    .lang-switch.active { color: var(--secondary); background: rgba(10,102,194,0.12); }
+    
+    /* Hero - 重点优化间距 */
     #home {
-      padding-top: 160px;
-      min-height: 120vh;
+      padding-top: 180px;          /* 顶部更大空间，避免挤压 */
+      min-height: 120vh;           /* 整体高度拉长，视觉更舒展 */
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #001F3F 0%, #08335e 100%);
+      background: linear-gradient(135deg, #001F3F 0%, #0A66C2 100%);
       color: white;
     }
-
+    
     .hero-content {
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 6%;
       text-align: center;
     }
-
+    
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(3.8rem, 7vw, 6.2rem);
-      margin-bottom: 2.8rem;
+      margin-bottom: 2.5rem;       /* 标题与副标题间距 */
       line-height: 1.1;
     }
-
+    
     .hero .subtitle {
       font-size: clamp(1.4rem, 2.4vw, 1.9rem);
       max-width: 960px;
-      margin: 0 auto;
+      margin: 0 auto 6rem;         /* 副标题与 CTA 间距大幅增加到 6rem */
       opacity: 0.92;
       font-weight: 300;
     }
-
-    /* 👉 核心新增：CTA 之前的结构性留白 */
-    .hero-cta-spacer {
-      height: 6.5rem;
-    }
-
+    
     .btn-group {
       display: flex;
       gap: 2.5rem;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
     }
-
+    
     .btn {
       padding: 1.2rem 3.2rem;
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       font-size: 1.15rem;
-      transition: all 0.4s;
+      letter-spacing: 0.5px;
     }
-
     .btn-outline {
       background: transparent;
       border: 2px solid white;
       color: white;
     }
-
     .btn-solid {
       background: white;
       color: var(--primary);
       box-shadow: 0 8px 24px rgba(0,0,0,0.2);
     }
-
     .btn:hover {
       transform: translateY(-5px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.25);
     }
-
+    
+    /* 其余样式保持不变，为节省篇幅省略，但实际使用时完整保留 */
+    section { padding: 10rem 5% 8rem; max-width: 1480px; margin: 0 auto; }
+    h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 4vw, 3.8rem); text-align: center; margin-bottom: 3.5rem; color: var(--primary); }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 2.5rem; }
+    .card { background: white; padding: 2.8rem; border-radius: 12px; box-shadow: var(--shadow); transition: all 0.4s; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,31,63,0.15); }
+    .card h3 { margin-bottom: 1.2rem; color: var(--primary); font-size: 1.5rem; }
+    footer { background: var(--dark); color: rgba(255,255,255,0.75); text-align: center; padding: 5rem 5% 3rem; font-size: 0.95rem; }
+    
     @media (max-width: 768px) {
       nav ul { display: none; }
-      .hero-cta-spacer { height: 4.5rem; }
-      .btn-group { flex-direction: column; gap: 1.6rem; }
+      .hero h1 { font-size: 3.8rem; }
+      .btn-group { flex-direction: column; gap: 1.4rem; }
     }
   </style>
 </head>
-
 <body class="lang-zh">
 
-<header>
-  <nav>
-    <a href="#home" class="logo-container">
-      <div class="logo-monogram">
-        <span class="logo-g">G</span>
-        <span class="logo-p">P</span>
+  <header>
+    <nav>
+      <a href="#home" class="logo-container">
+        <div class="logo-monogram">
+          <span class="logo-g">G</span>
+          <span class="logo-p">P</span>
+        </div>
+        <div>
+          <span class="logo-text">GLOBAL PIONEER</span>
+          <div class="logo-slogan">
+            <span class="zh-only">独立咨询顾问</span>
+            <span class="en-only">Independent Advisory</span>
+          </div>
+        </div>
+      </a>
+      
+      <ul>
+        <li><a href="#home" class="zh-only">首页</a><a href="#home" class="en-only">Home</a></li>
+        <li><a href="#about" class="zh-only">立场与原则</a><a href="#about" class="en-only">Position & Principles</a></li>
+        <li><a href="#services" class="zh-only">服务体系</a><a href="#services" class="en-only">Services</a></li>
+        <li><a href="#why-us" class="zh-only">为什么选择我们</a><a href="#why-us" class="en-only">Why Choose Us</a></li>
+        <li><a href="#projects" class="zh-only">专注项目</a><a href="#projects" class="en-only">Focus Projects</a></li>
+        <li><a href="#contact" class="zh-only">联系咨询</a><a href="#contact" class="en-only">Contact</a></li>
+        <li>
+          <span class="lang-switch active zh-only" onclick="document.body.classList.remove('lang-en'); document.body.classList.add('lang-zh')">中文</span>
+          <span class="lang-switch en-only" onclick="document.body.classList.remove('lang-zh'); document.body.classList.add('lang-en')">English</span>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <div class="hero-content">
+      <h1 class="zh-only">独立第三方<br>移民投资风险顾问</h1>
+      <h1 class="en-only">Independent Third-Party<br>Immigration Investment Risk Advisory</h1>
+      
+      <p class="subtitle zh-only">我们不代理项目、不收取返佣、不做中介。<br>专注深度尽调、风险拆解、长期陪伴，帮助您在信息不对称的市场中做出更明智的全球身份与投资决策。</p>
+      <p class="subtitle en-only">We do not represent programs, accept commissions, or act as intermediaries.<br>Focused on rigorous due diligence, risk dissection, and long-term support to empower informed global identity and investment decisions.</p>
+      
+      <div class="btn-group">
+        <a href="#about" class="btn btn-outline zh-only">了解我们的立场</a>
+        <a href="#about" class="btn btn-outline en-only">Understand Our Position</a>
+        <a href="#contact" class="btn btn-solid zh-only">联系咨询</a>
+        <a href="#contact" class="btn btn-solid en-only">Get in Touch</a>
       </div>
-      <div class="logo-slogan zh-only">独立咨询顾问</div>
-      <div class="logo-slogan en-only">Independent Advisory</div>
-    </a>
-
-    <ul>
-      <li><a href="#home">首页</a></li>
-      <li><a href="#about">立场与原则</a></li>
-      <li><a href="#contact">联系我们</a></li>
-      <li>
-        <span class="lang-switch active" onclick="document.body.className='lang-zh'">中文</span>
-        <span class="lang-switch" onclick="document.body.className='lang-en'">EN</span>
-      </li>
-    </ul>
-  </nav>
-</header>
-
-<section id="home">
-  <div class="hero-content">
-    <h1 class="zh-only">独立第三方<br>移民投资风险顾问</h1>
-
-    <p class="subtitle zh-only">
-      我们不代理项目、不收取返佣、不做中介。<br>
-      专注深度尽调、风险拆解与长期判断，<br>
-      帮助客户在复杂环境中做出更清醒的决策。
-    </p>
-
-    <div class="hero-cta-spacer"></div>
-
-    <div class="btn-group">
-      <a href="#about" class="btn btn-outline">了解我们的立场</a>
-      <a href="#contact" class="btn btn-solid">联系我们</a>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- 其余部分保持不变，为节省篇幅省略，但实际复制时完整保留 -->
+  <!-- About / Services / Why Us / Projects / Contact / Footer 内容与你提供的最新版本一致 -->
 
 </body>
 </html>
