@@ -34,7 +34,7 @@
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(255,255,255,0.98);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
@@ -112,49 +112,48 @@
     .lang-switch:hover { background: rgba(10,102,194,0.08); }
     .lang-switch.active { color: var(--secondary); background: rgba(10,102,194,0.12); }
     
-    /* Hero - 优化：更大留白、更高级 */
+    /* Hero - 大幅增加间距与高级感 */
     #home {
-      padding-top: 160px; /* 更大顶部空间 */
-      min-height: 110vh; /* 更高高度，视觉更开阔 */
+      padding-top: 160px;
+      min-height: 120vh; /* 更高高度，视觉更开阔 */
       display: flex;
       align-items: center;
       background: linear-gradient(135deg, #001F3F 0%, #08335e 100%);
       color: white;
-      position: relative;
     }
     
     .hero-content {
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 6%;
-      position: relative;
-      z-index: 2;
+      text-align: center;
     }
     
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3.8rem, 7vw, 6rem);
-      margin-bottom: 2rem;
+      font-size: clamp(3.8rem, 7vw, 6.2rem);
+      margin-bottom: 2.5rem;
       line-height: 1.1;
       letter-spacing: -0.02em;
     }
     
     .hero .subtitle {
-      font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+      font-size: clamp(1.4rem, 2.4vw, 1.9rem);
       max-width: 960px;
-      margin-bottom: 4rem;
+      margin: 0 auto 6rem; /* 核心间距大幅增加 */
       opacity: 0.92;
       font-weight: 300;
     }
     
     .btn-group {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
     
     .btn {
-      padding: 1.2rem 3rem;
+      padding: 1.2rem 3.2rem;
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
@@ -185,7 +184,7 @@
     
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 4.5vw, 4rem);
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
       text-align: center;
       margin-bottom: 4rem;
       color: var(--primary);
@@ -202,7 +201,7 @@
       padding: 3rem 2.5rem;
       border-radius: 12px;
       box-shadow: var(--shadow);
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.4s;
     }
     .card:hover {
       transform: translateY(-12px);
@@ -213,13 +212,6 @@
       margin-bottom: 1.4rem;
       color: var(--primary);
       font-size: 1.6rem;
-    }
-    
-    .price-tag {
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: var(--secondary);
-      margin: 1.4rem 0;
     }
     
     .highlight-box {
@@ -241,14 +233,14 @@
     }
     
     @media (max-width: 1024px) {
-      .hero h1 { font-size: 4.8rem; }
+      .hero h1 { font-size: 5rem; }
       section { padding: 10rem 5%; }
     }
     
     @media (max-width: 768px) {
-      nav ul { display: none; } /* 后期可加汉堡菜单 */
-      .hero h1 { font-size: 3.6rem; }
-      .btn-group { flex-direction: column; gap: 1.2rem; }
+      nav ul { display: none; }
+      .hero h1 { font-size: 3.8rem; }
+      .btn-group { flex-direction: column; gap: 1.4rem; }
     }
   </style>
 </head>
@@ -293,12 +285,7 @@
       <p class="subtitle zh-only">我们不代理项目、不收取返佣、不做中介。<br>专注深度尽调、风险拆解、长期陪伴，帮助您在信息不对称的市场中做出更明智的全球身份与投资决策。</p>
       <p class="subtitle en-only">We do not represent programs, accept commissions, or act as intermediaries.<br>Focused on rigorous due diligence, risk dissection, and long-term support to empower informed global identity and investment decisions.</p>
       
-      <div class="btn-group">
-        <a href="#about" class="btn btn-outline zh-only">了解我们的立场</a>
-        <a href="#about" class="btn btn-outline en-only">Understand Our Position</a>
-        <a href="#contact" class="btn btn-solid zh-only">联系咨询</a>
-        <a href="#contact" class="btn btn-solid en-only">Get in Touch</a>
-      </div>
+      <!-- 首页无任何 CTA 按钮，只留文字描述 -->
     </div>
   </section>
 
@@ -338,8 +325,29 @@
     </div>
   </section>
 
-  <!-- 以下为 Services / Why Us / Projects / Contact 部分，保持与之前核对一致的丰富内容 -->
-  <!-- 为节省篇幅，这里省略重复部分，但实际使用时请保留完整内容 -->
+  <!-- 其余模块（Services / Why Us / Projects / Contact）内容保持一致，为节省篇幅这里省略，但实际复制时请保留完整版 -->
+
+  <section id="contact">
+    <h2 class="zh-only">联系我们</h2>
+    <h2 class="en-only">Contact Us</h2>
+    
+    <div class="contact-info" style="text-align:center; max-width:900px; margin:0 auto;">
+      <p class="zh-only">我们理解高净值家庭在全球身份配置中的谨慎与复杂。<br>欢迎通过邮件或微信进行初步沟通，确认我们是否匹配您的需求。</p>
+      <p class="en-only">We understand the caution and complexity high-net-worth families face in global identity configuration.<br>Feel free to start with a simple conversation via email or WeChat.</p>
+      
+      <div style="margin: 4rem 0;">
+        <p style="font-size:1.8rem; font-weight:700; color:var(--secondary);">
+          contact@globalpioneer.consulting
+        </p>
+      </div>
+      
+      <a href="mailto:contact@globalpioneer.consulting?subject=咨询意向" class="btn btn-primary zh-only">通过邮件联系</a>
+      <a href="mailto:contact@globalpioneer.consulting?subject=Consultation Interest" class="btn btn-primary en-only">Contact via Email</a>
+      
+      <p style="margin-top:3rem; font-size:1.2rem;" class="zh-only">或添加微信：GlobalPioneer（响应更快）</p>
+      <p style="margin-top:3rem; font-size:1.2rem;" class="en-only">Or add WeChat: GlobalPioneer (faster response)</p>
+    </div>
+  </section>
 
   <footer>
     <p class="zh-only">© 2025 领锋国际咨询 · 独立顾问 · 透明定价 · 只为客户说话</p>
