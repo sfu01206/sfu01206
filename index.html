@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Global Pioneer Consulting | Independent Immigration Risk Advisory</title>
-  <meta name="description" content="Independent risk consulting for investment and talent immigration. No commissions, no conflicts. Focused on transparency and risk management."/>
+  <title>Global Pioneer Consulting | 独立移民投资风险咨询</title>
+  <meta name="description" content="独立移民投资及人才移民风险咨询服务，无佣金、无利益冲突，专注透明与风险管理。"/>
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"/>
   
@@ -79,8 +79,9 @@
     
     nav ul {
       display: flex;
-      gap: 3rem;
+      gap: 2.5rem;
       list-style: none;
+      align-items: center;
     }
     
     nav a {
@@ -91,6 +92,18 @@
       transition: color 0.3s;
     }
     nav a:hover { color: var(--secondary); }
+    
+    .lang-switch {
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+    
+    .lang-switch:hover { background: rgba(10,102,194,0.1); }
+    .lang-switch.active { color: var(--secondary); background: rgba(10,102,194,0.15); }
     
     #home {
       min-height: 100vh;
@@ -135,7 +148,6 @@
       background: var(--secondary);
       color: white;
       transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(10,102,194,0.4);
     }
     
     section {
@@ -240,18 +252,25 @@
       font-size: 0.95rem;
     }
     
+    /* 语言切换控制 */
+    [data-lang] { display: none; }
+    html.lang-zh [data-lang="zh"],
+    html.lang-en [data-lang="en"] { display: block; }
+    html.lang-zh [data-lang="en"],
+    html.lang-en [data-lang="zh"] { display: none; }
+    
     @media (max-width: 1024px) {
       .hero h1 { font-size: 3.8rem; }
       section { padding: 8rem 5%; }
     }
     
     @media (max-width: 768px) {
-      nav ul { display: none; } /* 后期可加汉堡菜单，此处保持简洁 */
+      nav ul { display: none; }
       .hero h1 { font-size: 3rem; }
     }
   </style>
 </head>
-<body>
+<body class="lang-zh">
 
   <header>
     <nav>
@@ -260,101 +279,147 @@
           <span class="logo-g">G</span>
           <span class="logo-p">P</span>
         </div>
-        <span class="logo-text">GLOBAL PIONEER</span>
+        <span class="logo-text" data-lang="zh">领锋国际</span>
+        <span class="logo-text" data-lang="en">GLOBAL PIONEER</span>
       </div>
+      
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" data-lang="zh">首页</a><a href="#home" data-lang="en">Home</a></li>
+        <li><a href="#about" data-lang="zh">关于我们</a><a href="#about" data-lang="en">About</a></li>
+        <li><a href="#services" data-lang="zh">服务</a><a href="#services" data-lang="en">Services</a></li>
+        <li><a href="#projects" data-lang="zh">专注领域</a><a href="#projects" data-lang="en">Projects</a></li>
+        <li><a href="#contact" data-lang="zh">联系我们</a><a href="#contact" data-lang="en">Contact</a></li>
+        <li>
+          <span class="lang-switch active" data-lang="zh" onclick="switchLanguage('zh')">中文</span>
+          <span class="lang-switch" data-lang="en" onclick="switchLanguage('en')">English</span>
+        </li>
       </ul>
     </nav>
   </header>
 
   <section id="home">
     <div class="hero-content">
-      <h1>Independent Risk Advisory<br>for Global Immigration</h1>
-      <p>Unbiased analysis · Zero commissions · Deep risk insight<br>Investment & Talent Immigration Programs</p>
-      <a href="#contact" class="btn">Begin with Initial Risk Scan – 999 RMB</a>
+      <h1 data-lang="zh">独立移民投资<br>风险咨询</h1>
+      <h1 data-lang="en">Independent Risk Advisory<br>for Global Immigration</h1>
+      
+      <p data-lang="zh">客观分析 · 零佣金 · 深度风险洞察<br>投资移民 & 人才移民项目</p>
+      <p data-lang="en">Unbiased analysis · Zero commissions · Deep risk insight<br>Investment & Talent Immigration Programs</p>
+      
+      <a href="#contact" class="btn" data-lang="zh">预约初步风险扫描 – 999元</a>
+      <a href="#contact" class="btn" data-lang="en">Begin with Initial Risk Scan – 999 RMB</a>
     </div>
   </section>
 
   <section id="about">
-    <h2>Our Core Principles</h2>
+    <h2 data-lang="zh">我们的核心原则</h2>
+    <h2 data-lang="en">Our Core Principles</h2>
+    
     <div class="principles">
       <div class="principle-card">
-        <h3>Absolute Independence</h3>
-        <p>No project affiliations, no referral fees, no hidden commissions.<br>Our only client is you.</p>
+        <h3 data-lang="zh">绝对独立性</h3>
+        <h3 data-lang="en">Absolute Independence</h3>
+        <p data-lang="zh">不与任何项目方、基金管理人、开发商存在关联、返佣或利益关系。<br>我们的唯一客户是您。</p>
+        <p data-lang="en">No project affiliations, no referral fees, no hidden commissions.<br>Our only client is you.</p>
       </div>
       <div class="principle-card">
-        <h3>Risk-First Philosophy</h3>
-        <p>We identify policy shifts, hidden costs, exit barriers and structural weaknesses — before you commit.</p>
+        <h3 data-lang="zh">风险优先</h3>
+        <h3 data-lang="en">Risk-First Philosophy</h3>
+        <p data-lang="zh">在您承诺前，识别政策变动、隐性成本、退出障碍和结构弱点。</p>
+        <p data-lang="en">We identify policy shifts, hidden costs, exit barriers and structural weaknesses — before you commit.</p>
       </div>
       <div class="principle-card">
-        <h3>Full Transparency</h3>
-        <p>Fixed fees upfront. No fund handling. No application submission. No outcome guarantees.</p>
+        <h3 data-lang="zh">完全透明</h3>
+        <h3 data-lang="en">Full Transparency</h3>
+        <p data-lang="zh">费用固定且提前披露。不经手资金、不递交申请、不提供结果承诺。</p>
+        <p data-lang="en">Fixed fees upfront. No fund handling. No application submission. No outcome guarantees.</p>
       </div>
     </div>
   </section>
 
   <section id="services">
-    <h2>Our Advisory Services</h2>
+    <h2 data-lang="zh">我们的咨询服务</h2>
+    <h2 data-lang="en">Our Advisory Services</h2>
+    
     <div class="services-grid">
       <div class="service-card" onclick="window.location.href='#contact'">
-        <h3>Initial Risk Scan</h3>
+        <h3 data-lang="zh">初步风险扫描</h3>
+        <h3 data-lang="en">Initial Risk Scan</h3>
         <div class="price">999 RMB</div>
-        <p>30-45 minute consultation + instant red flag check.<br>Fully creditable toward any deeper service.</p>
+        <p data-lang="zh">30-45分钟一对一咨询 + 即时红旗检查<br>可100%抵扣后续任何服务费用</p>
+        <p data-lang="en">30-45 minute one-on-one consultation + instant red flag check<br>Fully creditable (100%) toward any deeper service</p>
       </div>
+      
       <div class="service-card" onclick="window.location.href='#contact'">
-        <h3>Preliminary Project Due Diligence</h3>
+        <h3 data-lang="zh">项目初步尽调报告</h3>
+        <h3 data-lang="en">Preliminary Project Due Diligence Report</h3>
         <div class="price">28,000 – 48,000 RMB</div>
-        <p>Focused 12-18 page report: cost structure, major risks, basic alternatives.</p>
+        <p data-lang="zh">针对单个项目/基金/房产的深度报告（12-18页）<br>包含真实成本拆解、主要风险点、基本备选方案</p>
+        <p data-lang="en">In-depth report on a single program/fund/property (12-18 pages)<br>Includes real cost breakdown, major risks, basic alternatives</p>
       </div>
+      
       <div class="service-card" onclick="window.location.href='#contact'">
-        <h3>Comprehensive Comparison & Strategy</h3>
+        <h3 data-lang="zh">完整方案对比与策略指导</h3>
+        <h3 data-lang="en">Comprehensive Comparison & Strategy Guidance</h3>
         <div class="price">88,000 – 148,000 RMB</div>
-        <p>Multi-program analysis, negotiation guidance, savings potential evaluation.</p>
+        <p data-lang="zh">多项目横向对比、优先级排序、谈判话术模板、预计节省金额评估</p>
+        <p data-lang="en">Multi-program side-by-side comparison, priority ranking, negotiation script templates, estimated savings assessment</p>
       </div>
+      
       <div class="service-card" onclick="window.location.href='#contact'">
-        <h3>Annual Monitoring Subscription</h3>
-        <div class="price">38,000 RMB / year</div>
-        <p>Policy change alerts · Project progress tracking · 2 free reassessments.</p>
+        <h3 data-lang="zh">年度政策与项目监控订阅</h3>
+        <h3 data-lang="en">Annual Policy & Project Monitoring Subscription</h3>
+        <div class="price">38,000 RMB / 年</div>
+        <p data-lang="zh">12个月滚动服务：政策变化预警、项目进展跟踪、每年2次免费追加评估</p>
+        <p data-lang="en">12-month rolling service: Policy change alerts, project progress tracking, 2 free reassessments per year</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
-    <h2>Focus Areas</h2>
+    <h2 data-lang="zh">专注领域</h2>
+    <h2 data-lang="en">Focus Areas</h2>
+    
     <div class="projects-grid">
       <div class="project-card" onclick="window.location.href='#contact'">
-        <img src="https://via.placeholder.com/600x240/001F3F/FFFFFF?text=Portugal+Golden+Visa+Fund" alt="Portugal"/>
+        <img src="https://via.placeholder.com/600x240/001F3F/FFFFFF?text=Portugal+Golden+Visa+Fund" alt="Portugal Golden Visa Fund"/>
         <div class="project-info">
-          <h3>Portugal Golden Visa – Funds</h3>
-          <p>Qualifying fund structures · Exit & liquidity risks</p>
+          <h3 data-lang="zh">葡萄牙黄金签证 – 基金类</h3>
+          <h3 data-lang="en">Portugal Golden Visa – Qualifying Funds</h3>
+          <p data-lang="zh">合格投资基金结构分析 · 退出与流动性风险评估</p>
+          <p data-lang="en">Qualifying fund structures analysis · Exit & liquidity risk assessment</p>
         </div>
       </div>
+      
       <div class="project-card" onclick="window.location.href='#contact'">
         <img src="https://via.placeholder.com/600x240/0A66C2/FFFFFF?text=US+EB-5" alt="US EB-5"/>
         <div class="project-info">
-          <h3>US EB-5 Investment</h3>
-          <p>Regional center & direct investment risk profiles</p>
+          <h3 data-lang="zh">美国EB-5投资移民</h3>
+          <h3 data-lang="en">US EB-5 Investment Program</h3>
+          <p data-lang="zh">区域中心与直接投资风险剖析</p>
+          <p data-lang="en">Regional center & direct investment risk profiles</p>
         </div>
       </div>
+      
       <div class="project-card" onclick="window.location.href='#contact'">
-        <img src="https://via.placeholder.com/600x240/001F3F/FFFFFF?text=EB-1A+Talent" alt="EB-1A"/>
+        <img src="https://via.placeholder.com/600x240/001F3F/FFFFFF?text=US+EB-1A" alt="US EB-1A"/>
         <div class="project-info">
-          <h3>US EB-1A Extraordinary Ability</h3>
-          <p>Evidence strength assessment & risk mitigation</p>
+          <h3 data-lang="zh">美国EB-1A杰出人才移民</h3>
+          <h3 data-lang="en">US EB-1A Extraordinary Ability</h3>
+          <p data-lang="zh">证据强度评估 · 风险控制建议</p>
+          <p data-lang="en">Evidence strength assessment & risk mitigation strategies</p>
         </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact Us</h2>
+    <h2 data-lang="zh">联系我们</h2>
+    <h2 data-lang="en">Contact Us</h2>
+    
     <div class="contact-info">
-      <p>To schedule your 999 RMB Initial Risk Scan (fully creditable), please send us an email or add our WeChat.</p>
+      <p data-lang="zh">预约999元初步风险扫描（可全额抵扣），请直接发邮件或添加微信。</p>
+      <p data-lang="en">To schedule your 999 RMB Initial Risk Scan (fully creditable), please email or add WeChat.</p>
+      
       <p style="margin: 2rem 0 1rem; font-size: 1.4rem; font-weight: 600; color: var(--primary);">
         contact@globalpioneer.consulting
       </p>
@@ -362,27 +427,33 @@
 
     <div class="contact-methods">
       <div class="method-card">
-        <h3>Email Us Directly</h3>
-        <p>Click below to open your email client with pre-filled details.</p>
-        <a href="mailto:contact@globalpioneer.consulting?subject=Initial%20Risk%20Scan%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20schedule%20an%20Initial%20Risk%20Scan%20(999%20RMB).%0A%0AMy%20name%3A%20%5BYour%20Name%5D%0AInterested%20program%3A%20%5Be.g.%20Portugal%20Fund%2C%20US%20EB-5%5D%0ABrief%20situation%3A%20%5Boptional%5D%0A%0AThank%20you." class="mailto-btn">Open Email Client</a>
+        <h3 data-lang="zh">直接发邮件</h3>
+        <h3 data-lang="en">Email Us Directly</h3>
+        <p data-lang="zh">点击下方通过您的邮箱客户端发送（已预填主题和部分内容）</p>
+        <p data-lang="en">Click below to open your email client (pre-filled)</p>
+        <a href="mailto:contact@globalpioneer.consulting?subject=初步风险扫描咨询&body=您好，%0A%0A我想预约初步风险扫描（999元）。%0A%0A姓名：%0A感兴趣项目：%0A简单情况描述：%0A%0A谢谢。" class="mailto-btn" data-lang="zh">打开邮箱</a>
+        <a href="mailto:contact@globalpioneer.consulting?subject=Initial Risk Scan Inquiry&body=Hello,%0A%0AI would like to schedule an Initial Risk Scan (999 RMB).%0A%0AMy name: %0AInterested program: %0ABrief situation: %0A%0AThank you." class="mailto-btn" data-lang="en">Open Email Client</a>
       </div>
 
       <div class="method-card">
-        <h3>WeChat Inquiry</h3>
-        <p>Add our official WeChat for faster response (most preferred by domestic clients).</p>
+        <h3 data-lang="zh">微信咨询</h3>
+        <h3 data-lang="en">WeChat Inquiry</h3>
+        <p data-lang="zh">添加官方微信，响应更快（国内客户首选）</p>
+        <p data-lang="en">Add our WeChat for faster response</p>
         <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--secondary);">
-          Search ID: GlobalPioneer<br>or QR code (to be added)
+          微信号：GlobalPioneer<br>或扫码（待添加）
         </p>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 Global Pioneer Consulting<br>Independent Risk Advisory · No Commissions · Client-First Only</p>
+    <p data-lang="zh">© 2025 领锋国际咨询<br>独立风险咨询 · 无佣金 · 客户优先</p>
+    <p data-lang="en">© 2025 Global Pioneer Consulting<br>Independent Risk Advisory · No Commissions · Client-First Only</p>
   </footer>
 
   <script>
-    // Smooth scroll for all internal links and logo
+    // 平滑滚动
     document.querySelectorAll('a[href^="#"], .logo-container').forEach(el => {
       el.addEventListener('click', function(e) {
         if (this.tagName === 'A' && this.getAttribute('href').startsWith('#')) {
@@ -391,6 +462,18 @@
         }
       });
     });
+
+    // 语言切换
+    function switchLanguage(lang) {
+      document.documentElement.className = 'lang-' + lang;
+      document.querySelectorAll('.lang-switch').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      // 更新标题
+      document.title = lang === 'zh' 
+        ? "Global Pioneer Consulting | 独立移民投资风险咨询"
+        : "Global Pioneer Consulting | Independent Immigration Risk Advisory";
+    }
   </script>
 </body>
 </html>
