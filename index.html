@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title data-zh="领锋国际 | 独立移民投资风险咨询" data-en="Global Pioneer Consulting | Independent Immigration Risk Advisory">
-    领锋国际 | 独立移民投资风险咨询
-  </title>
-  <meta name="description" content="独立移民投资及人才移民风险咨询服务，无佣金、无利益冲突，专注透明与风险管理。"/>
+  <title>Global Pioneer | Independent Immigration Risk Advisory 领锋国际咨询</title>
+  <meta name="description" content="Independent Risk Advisory for Global Immigration. Unbiased analysis, zero commissions, deep risk insight.">
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"/>
   
@@ -21,19 +19,28 @@
       --shadow: 0 10px 30px rgba(0,31,63,0.12);
     }
     
+    /* 基础优化 */
+    html { scroll-behavior: smooth; }
     * { margin:0; padding:0; box-sizing:border-box; }
+    
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--light);
       color: var(--dark);
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
+    
+    /* 语言切换核心 */
+    .lang-en .zh-only { display: none !important; }
+    .lang-zh .en-only { display: none !important; }
     
     header {
       position: fixed;
       top: 0; width: 100%;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.9);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(226,232,240,0.6);
       z-index: 1000;
     }
@@ -41,7 +48,7 @@
     nav {
       max-width: 1440px;
       margin: 0 auto;
-      padding: 1.4rem 6%;
+      padding: 1rem 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -50,12 +57,12 @@
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      cursor: pointer;
+      gap: 0.8rem;
+      text-decoration: none;
     }
     
     .logo-monogram {
-      width: 56px; height: 56px;
+      width: 48px; height: 48px;
       position: relative;
     }
     
@@ -63,24 +70,24 @@
       position: absolute;
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 3.4rem;
+      font-size: 2.8rem;
       line-height: 1;
       color: var(--primary);
-      letter-spacing: -0.04em;
     }
-    .logo-g { left: 0; top: -4px; }
-    .logo-p { right: 0; bottom: -6px; transform: translateX(6px); }
+    .logo-g { left: 0; top: 0; }
+    .logo-p { right: -4px; bottom: 0; color: var(--secondary); opacity: 0.8; }
     
     .logo-text {
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
       color: var(--primary);
+      text-transform: uppercase;
     }
     
     nav ul {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
       align-items: center;
     }
@@ -89,353 +96,254 @@
       color: var(--dark);
       text-decoration: none;
       font-weight: 500;
-      font-size: 1.05rem;
-      transition: color 0.3s;
+      font-size: 0.95rem;
+      transition: 0.3s;
     }
     nav a:hover { color: var(--secondary); }
     
+    .lang-switch-container {
+      display: flex;
+      gap: 5px;
+      background: #eee;
+      padding: 4px;
+      border-radius: 20px;
+    }
+
     .lang-switch {
-      font-size: 1rem;
+      font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      transition: all 0.3s;
+      padding: 4px 12px;
+      border-radius: 15px;
+      transition: 0.3s;
     }
-    .lang-switch:hover { background: rgba(10,102,194,0.1); }
-    .lang-switch.active { color: var(--secondary); background: rgba(10,102,194,0.15); }
+    .lang-switch.active { background: white; color: var(--secondary); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     
+    /* HERO 修复：将你的图片作为背景 */
     #home {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #001F3F 0%, #0A66C2 50%, #3B82F6 100%);
+      position: relative;
+      background: #000;
       color: white;
       text-align: center;
-      padding: 0 6%;
+      padding-top: 72px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(0,31,63,0.7), rgba(15,23,42,0.85)), url('background.jpg') center/cover no-repeat;
+      z-index: 1;
     }
     
-    .hero-content { max-width: 960px; }
+    .hero-content { position: relative; z-index: 2; padding: 0 6%; }
+
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 4.6rem;
-      margin-bottom: 1.4rem;
-      line-height: 1.05;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
     }
+
     .hero p {
-      font-size: 1.45rem;
-      max-width: 780px;
-      margin: 0 auto 2.5rem;
-      opacity: 0.92;
-      font-weight: 300;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      opacity: 0.9;
     }
     
     .btn {
       display: inline-block;
-      padding: 1rem 2.8rem;
-      background: white;
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 50px;
-      font-size: 1.1rem;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      transition: all 0.35s;
-    }
-    .btn:hover {
+      padding: 1.1rem 3rem;
       background: var(--secondary);
       color: white;
-      transform: translateY(-6px);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px; /* 方形圆角比纯圆更显商务稳重 */
+      transition: 0.35s;
     }
+    .btn:hover { background: white; color: var(--primary); transform: translateY(-3px); }
     
-    section {
-      padding: 12rem 6%;
-      max-width: 1440px;
-      margin: 0 auto;
-    }
+    section { padding: 100px 6%; max-width: 1440px; margin: 0 auto; }
+    h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 4rem; color: var(--primary); }
     
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.6rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      color: var(--primary);
-    }
-    
+    /* 网格优化 */
     .principles, .services-grid, .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
     
     .principle-card, .service-card, .project-card {
       background: white;
-      padding: 2.8rem;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      transition: all 0.4s;
-      cursor: pointer;
+      padding: 2.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: 0.4s;
     }
-    
     .principle-card:hover, .service-card:hover, .project-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 40px rgba(0,31,63,0.15);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      border-color: var(--secondary);
     }
     
-    .service-card { border: 1px solid transparent; }
-    .service-card:hover { border: 1px solid var(--secondary); }
+    .price { font-size: 1.8rem; font-weight: 700; color: var(--secondary); margin: 1rem 0; }
     
-    .price {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--secondary);
-      margin: 1.2rem 0;
-    }
-    
-    .project-card img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-    }
-    
-    .contact-info {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 4rem;
-      font-size: 1.25rem;
-      color: var(--gray);
-    }
+    .project-card { padding: 0; overflow: hidden; }
+    .project-card img { width: 100%; height: 200px; object-fit: cover; }
+    .project-info { padding: 2rem; }
     
     .contact-methods {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 3rem;
     }
-    
     .method-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      width: 320px;
-      text-align: center;
+      background: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--border); width: 340px; text-align: center;
     }
     
-    .method-card h3 { margin-bottom: 1rem; color: var(--primary); }
-    
-    .mailto-btn {
-      display: inline-block;
-      margin-top: 1.2rem;
-      padding: 0.9rem 2rem;
-      background: var(--secondary);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-    
-    .mailto-btn:hover {
-      background: #0856A0;
-      transform: translateY(-4px);
-    }
-    
-    footer {
-      background: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 5rem 6% 3rem;
-      font-size: 0.95rem;
-    }
-    
-    @media (max-width: 1024px) {
-      .hero h1 { font-size: 3.8rem; }
-      section { padding: 8rem 5%; }
-    }
-    
+    footer { background: var(--primary); color: white; text-align: center; padding: 4rem 6%; font-size: 0.9rem; opacity: 0.9; }
+
+    /* 移动端菜单显示逻辑 */
     @media (max-width: 768px) {
       nav ul { display: none; }
-      .hero h1 { font-size: 3rem; }
+      .hero h1 { font-size: 2.4rem; }
     }
   </style>
 </head>
-<body>
+<body class="lang-zh">
 
   <header>
     <nav>
-      <div class="logo-container" onclick="window.location.href='#home'">
+      <a href="#home" class="logo-container">
         <div class="logo-monogram">
           <span class="logo-g">G</span>
           <span class="logo-p">P</span>
         </div>
-        <span class="logo-text">GLOBAL PIONEER</span>
-      </div>
+        <span class="logo-text">Global Pioneer</span>
+      </a>
       
       <ul>
-        <li><a href="#home" class="nav-home">首页</a></li>
-        <li><a href="#about" class="nav-about">关于我们</a></li>
-        <li><a href="#services" class="nav-services">服务</a></li>
-        <li><a href="#projects" class="nav-projects">专注领域</a></li>
-        <li><a href="#contact" class="nav-contact">联系我们</a></li>
+        <li><a href="#home" class="zh-only">首页</a><a href="#home" class="en-only">Home</a></li>
+        <li><a href="#about" class="zh-only">关于我们</a><a href="#about" class="en-only">About</a></li>
+        <li><a href="#services" class="zh-only">服务</a><a href="#services" class="en-only">Services</a></li>
+        <li><a href="#projects" class="zh-only">专注领域</a><a href="#projects" class="en-only">Focus</a></li>
         <li>
-          <span class="lang-switch active" onclick="switchLanguage('zh')">中文</span>
-          <span class="lang-switch" onclick="switchLanguage('en')">English</span>
+          <div class="lang-switch-container">
+            <span class="lang-switch active" id="btn-zh" onclick="setLang('zh')">中</span>
+            <span class="lang-switch" id="btn-en" onclick="setLang('en')">EN</span>
+          </div>
         </li>
       </ul>
     </nav>
   </header>
 
   <section id="home">
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1 class="hero-title">独立移民投资<br>风险咨询</h1>
-      <p class="hero-desc">客观分析 · 零佣金 · 深度风险洞察<br>投资移民 & 人才移民项目</p>
-      <a href="#contact" class="btn hero-btn">预约初步风险扫描 – 999元</a>
+      <h1 class="zh-only">独立移民投资<br>风险咨询</h1>
+      <h1 class="en-only">Independent Risk Advisory<br>for Global Immigration</h1>
+      <p class="zh-only">客观分析 · 零佣金 · 深度风险洞察</p>
+      <p class="en-only">Unbiased Analysis · Zero Commissions · Deep Insight</p>
+      <a href="#contact" class="btn zh-only">预约初步风险扫描 – 999元</a>
+      <a href="#contact" class="btn en-only">Initial Risk Scan – 999 RMB</a>
     </div>
   </section>
 
   <section id="about">
-    <h2 class="about-title">我们的核心原则</h2>
+    <h2 class="zh-only">核心原则</h2><h2 class="en-only">Core Principles</h2>
     <div class="principles">
       <div class="principle-card">
-        <h3 class="principle-title1">绝对独立性</h3>
-        <p class="principle-text1">不与任何项目方、基金管理人、开发商存在关联、返佣或利益关系。<br>我们的唯一客户是您。</p>
+        <h3 class="zh-only">绝对独立性</h3><h3 class="en-only">Absolute Independence</h3>
+        <p class="zh-only">不与项目方、基金存在利益关联。我们的唯一客户是您。</p>
+        <p class="en-only">No affiliations or referral fees. Our only client is you.</p>
       </div>
       <div class="principle-card">
-        <h3 class="principle-title2">风险优先</h3>
-        <p class="principle-text2">在您承诺前，识别政策变动、隐性成本、退出障碍和结构弱点。</p>
+        <h3 class="zh-only">风险优先</h3><h3 class="en-only">Risk-First</h3>
+        <p class="zh-only">识别政策变动、隐性成本和退出障碍。</p>
+        <p class="en-only">Identify policy shifts, hidden costs, and exit barriers.</p>
       </div>
       <div class="principle-card">
-        <h3 class="principle-title3">完全透明</h3>
-        <p class="principle-text3">费用固定且提前披露。不经手资金、不递交申请、不提供结果承诺。</p>
+        <h3 class="zh-only">完全透明</h3><h3 class="en-only">Full Transparency</h3>
+        <p class="zh-only">费用固定，不经手资金，不提供结果承诺。</p>
+        <p class="en-only">Fixed fees, no fund handling, no outcome guarantees.</p>
       </div>
     </div>
   </section>
 
-  <section id="services">
-    <h2 class="services-title">我们的咨询服务</h2>
+  <section id="services" class="alt">
+    <h2 class="zh-only">咨询服务</h2><h2 class="en-only">Advisory Services</h2>
     <div class="services-grid">
-      <div class="service-card" onclick="window.location.href='#contact'">
-        <h3 class="service-title1">初步风险扫描</h3>
+      <div class="service-card">
+        <h3>Initial Risk Scan</h3>
         <div class="price">999 RMB</div>
-        <p class="service-desc1">30-45分钟一对一咨询 + 即时红旗检查<br>可100%抵扣后续任何服务费用</p>
+        <p class="zh-only">30-45分钟一对一咨询，即时检查红旗风险。</p>
+        <p class="en-only">30-45 min consultation with instant red flag check.</p>
       </div>
-      <div class="service-card" onclick="window.location.href='#contact'">
-        <h3 class="service-title2">项目初步尽调报告</h3>
-        <div class="price">28,000 – 48,000 RMB</div>
-        <p class="service-desc2">针对单个项目/基金/房产的深度报告（12-18页）<br>包含真实成本拆解、主要风险点、基本备选方案</p>
-      </div>
-      <div class="service-card" onclick="window.location.href='#contact'">
-        <h3 class="service-title3">完整方案对比与策略指导</h3>
-        <div class="price">88,000 – 148,000 RMB</div>
-        <p class="service-desc3">多项目横向对比、优先级排序、谈判话术模板、预计节省金额评估</p>
-      </div>
-      <div class="service-card" onclick="window.location.href='#contact'">
-        <h3 class="service-title4">年度政策与项目监控订阅</h3>
-        <div class="price">38,000 RMB / 年</div>
-        <p class="service-desc4">12个月滚动服务：政策变化预警、项目进展跟踪、每年2次免费追加评估</p>
+      <div class="service-card">
+        <h3>Due Diligence Report</h3>
+        <div class="price">28k - 48k RMB</div>
+        <p class="zh-only">单项目深度报告，拆解真实成本与结构风险。</p>
+        <p class="en-only">Single-project report on real costs and structural risks.</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
-    <h2 class="projects-title">专注领域</h2>
+    <h2 class="zh-only">专注领域</h2><h2 class="en-only">Focus Areas</h2>
     <div class="projects-grid">
-      <div class="project-card" onclick="window.location.href='#contact'">
-        <img src="https://via.placeholder.com/600x240/001F3F/FFFFFF?text=Portugal+Golden+Visa+Fund" alt="Portugal"/>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=600&q=80" alt="Portugal"/>
         <div class="project-info">
-          <h3 class="project-title1">葡萄牙黄金签证 – 基金类</h3>
-          <p class="project-desc1">合格投资基金结构分析 · 退出与流动性风险评估</p>
+          <h3>Portugal Golden Visa</h3>
+          <p class="zh-only">合格投资基金结构分析 · 流动性风险评估</p>
+          <p class="en-only">Fund structure analysis & liquidity risk assessment</p>
         </div>
       </div>
-      <div class="project-card" onclick="window.location.href='#contact'">
-        <img src="https://via.placeholder.com/600x240/0A66C2/FFFFFF?text=US+EB-5" alt="US EB-5"/>
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1507608158173-1dcec673a2e5?auto=format&fit=crop&w=600&q=80" alt="US"/>
         <div class="project-info">
-          <h3 class="project-title2">美国EB-5投资移民</h3>
-          <p class="project-desc2">区域中心与直接投资风险剖析</p>
-        </div>
-      </div>
-      <div class="project-card" onclick="window.location.href='#contact'">
-        <img src="https://via.placeholder.com/600x240/001F3F/FFFFFF?text=US+EB-1A" alt="US EB-1A"/>
-        <div class="project-info">
-          <h3 class="project-title3">美国EB-1A杰出人才移民</h3>
-          <p class="project-desc3">证据强度评估 · 风险控制建议</p>
+          <h3>US EB-5 / EB-1A</h3>
+          <p class="zh-only">区域中心风险剖析 · 证据强度深度评估</p>
+          <p class="en-only">Regional center profiles & evidence strength audit</p>
         </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2 class="contact-title">联系我们</h2>
-    <div class="contact-info">
-      <p class="contact-desc">预约999元初步风险扫描（可全额抵扣），请直接发邮件或添加微信。</p>
-      <p style="margin: 2rem 0 1rem; font-size: 1.4rem; font-weight: 600; color: var(--primary);">
-        contact@globalpioneer.consulting
-      </p>
-    </div>
+    <h2 class="zh-only">联系我们</h2><h2 class="en-only">Contact Us</h2>
     <div class="contact-methods">
       <div class="method-card">
-        <h3 class="contact-method1">直接发邮件</h3>
-        <p class="contact-method-desc1">点击下方通过您的邮箱客户端发送（已预填主题和部分内容）</p>
-        <a href="mailto:contact@globalpioneer.consulting?subject=初步风险扫描咨询&body=您好，%0A%0A我想预约初步风险扫描（999元）。%0A%0A姓名：%0A感兴趣项目：%0A简单情况描述：%0A%0A谢谢。" class="mailto-btn">打开邮箱</a>
+        <h3 class="zh-only">直接邮件</h3><h3 class="en-only">Email Us</h3>
+        <p>contact@globalpioneer.consulting</p>
+        <a href="mailto:contact@globalpioneer.consulting" class="btn" style="margin-top:1rem; padding:0.6rem 1.5rem;">Send Email</a>
       </div>
       <div class="method-card">
-        <h3 class="contact-method2">微信咨询</h3>
-        <p class="contact-method-desc2">添加官方微信，响应更快（国内客户首选）</p>
-        <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--secondary);">
-          微信号：GlobalPioneer<br>或扫码（待添加）
-        </p>
+        <h3>WeChat</h3>
+        <p>GlobalPioneer</p>
+        <p style="font-size:0.8rem; color:var(--gray); margin-top:1rem;">Scan code or add ID</p>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 领锋国际咨询<br>独立风险咨询 · 无佣金 · 客户优先</p>
+    <p>© 2025 Global Pioneer Consulting · Independent Risk Advisory</p>
   </footer>
 
   <script>
-    // 平滑滚动
-    document.querySelectorAll('a[href^="#"], .logo-container').forEach(el => {
-      el.addEventListener('click', function(e) {
-        if (this.tagName === 'A' && this.getAttribute('href').startsWith('#')) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-    });
-
-    // 语言切换 - 彻底替换所有文本
-    function switchLanguage(lang) {
-      // 更新 html lang 属性
-      document.documentElement.lang = lang;
-      
-      // 更新切换按钮高亮
-      document.querySelectorAll('.lang-switch').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent === (lang === 'zh' ? '中文' : 'English'));
-      });
-      
-      // 更新所有带有 data-zh / data-en 的元素
-      document.querySelectorAll('[data-zh], [data-en]').forEach(el => {
-        if (lang === 'zh') {
-          if (el.hasAttribute('data-zh')) el.textContent = el.getAttribute('data-zh');
-        } else {
-          if (el.hasAttribute('data-en')) el.textContent = el.getAttribute('data-en');
-        }
-      });
-      
-      // 更新 title
-      document.title = lang === 'zh' 
-        ? document.querySelector('title').getAttribute('data-zh')
-        : document.querySelector('title').getAttribute('data-en');
+    function setLang(lang) {
+      if(lang === 'zh') {
+        document.body.className = 'lang-zh';
+        document.getElementById('btn-zh').classList.add('active');
+        document.getElementById('btn-en').classList.remove('active');
+      } else {
+        document.body.className = 'lang-en';
+        document.getElementById('btn-en').classList.add('active');
+        document.getElementById('btn-zh').classList.remove('active');
+      }
     }
-
-    // 初始化：设置所有元素的初始文本为中文
-    window.addEventListener('load', () => {
-      switchLanguage('zh');
-    });
   </script>
 </body>
 </html>
